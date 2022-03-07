@@ -28,6 +28,6 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
 	},
 	buildOptions: {
 		sitemap: true,
-		site: 'http://localhost:3000/',
+		site: 'https://pyronaur.com',
 	},
 });
