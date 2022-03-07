@@ -27,8 +27,8 @@ export function all(posts: Post[]) {
 
 export function getRSS(posts: Post[]) {
 	return {
-		title: 'Blank Slate RSS',
-		description: 'Blank Slate blog RSS Feed',
+		title: 'Pyronaur.com RSS',
+		description: 'Pyronaur.com RSS Feed',
 		stylesheet: true,
 		customData: `<language>en-us</language>`,
 		items: posts.map((post: Post) => ({
