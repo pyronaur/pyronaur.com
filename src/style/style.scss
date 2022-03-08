@@ -16,10 +16,10 @@ body {
 }
 
 a {
-	color: hsl(188 74% 50%);
+	color: var( --link-color );
 
 	&:hover,
 	&:focus {
-		color: hsl(188 74% 70%);
+		color: var( --link-color-hover );
 	}
 }

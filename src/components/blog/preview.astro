@@ -4,34 +4,40 @@
 	const post: Post = Astro.props.post
 ---
 
-<div class="preview">
-	<div class="post-title">
-		<h2><a href={`/${post.slug}`}>{post.title}</a></h2>
-	</div>
-	<div class="post-date">
-		<Date date={post.date}/>
-	</div>
-	<p>{post.preview}</p>
+<article>
+	<a class="preview" href={`/${post.slug}`}>
+		
+		<div class="top">
+			<div class="post-title">
+				<h2>{post.title}</h2>
+			</div>
+		</div>
 
-	<a class="read-more" href={`/${post.slug}`}>Read More</a>
-</div>
+		<div class="content">{post.preview}</div>
+
+		<b>Read More</b>
+	</a>
+</article>
 
 <style lang="scss">
-	.post-date { 
-		font-size: .85rem;
-	}
-
 	.post-title h2 { 
-		font-size: 1.4rem;
+		font-size: 1.3rem;
+		font-weight: 600;
 	}
-	.post-title a { 
+	a { 
 		color: var( --text-color-alt );
 		text-decoration: none;
-		font-weight: 600;
+		display: block;
+	}
 
-		&:hover {
-			text-decoration: underline;
+	a:hover {
+		h2 {
+			color: var( --link-color-hover);
 		}
+	}
+
+	.content {
+		margin-bottom: 20px;
 	}
 
 	.read-more {
@@ -43,5 +49,10 @@
 
 	.preview {
 		margin-bottom: 40px;
+	}
+
+	b {
+		font-weight: 600;
+		font-size: 0.925rem;
 	}
 </style>
