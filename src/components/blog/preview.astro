@@ -12,10 +12,25 @@
 		<Date date={post.date}/>
 	</div>
 	<p>{post.preview}</p>
+
+	<a href={`/${post.slug}`}>Read More</a>
 </div>
 
-<style>
+<style lang="scss">
 	.post-date { 
 		font-size: .85rem;
+	}
+
+	.post-title { 
+		font-size: 1.2rem;
+	}
+	.post-title a { 
+		color: var( --text-color );
+		text-decoration: none;
+		font-weight: 600;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 </style>
