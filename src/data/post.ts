@@ -18,12 +18,19 @@ export function single(post): Post {
 	}
 }
 
-export function all(posts: Post[]) {
+export function blog(posts) {
+	console.log(posts.map(post => post.slug))
+	return all(posts)
+		.filter(post => !post.file.pathname.includes("/archive/"));
+}
+
+export function all(posts): Post[] {
 	return posts
 		.map(post => single(post))
 		.filter(post => true !== post.draft)
 		.sort((a, b) => b.timestamp - a.timestamp)
 }
+
 
 export function getRSS(posts: Post[]) {
 	return {
