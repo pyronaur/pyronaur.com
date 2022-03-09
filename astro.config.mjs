@@ -8,7 +8,9 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
 		render: [
 			astroRemark,
 			{
-				remarkPlugins: [],
+				remarkPlugins: [
+					'remark-gfm'
+				],
 				rehypePlugins: [
 					'rehype-slug',
 					['rehype-autolink-headings', { behavior: 'wrap' }],
