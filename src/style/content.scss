@@ -27,19 +27,32 @@
 	}
 
 	pre {
-		padding: 33px 22px;
+		padding: 33px;
 		margin-bottom: 33px;
 		margin-top: 33px;
-		border-radius: 18px;
+		font-size: 1rem;
 
 		scrollbar-width: none;
 		&::-webkit-scrollbar {
 			display: none;
 		}
 	}
+
+	pre, pre * {
+		line-height: 1.55;
+	}
 }
 
 
 .astro-code {
 	background-color: var( --code-background ) !important;
+	
+
+	// span[style="color: #F92672"] {
+	// 	color: #ffdc23 !important;
+	// }
+
+	// span[style="color: #E6DB74"] {
+	// 	color: hsl(188deg 63% 74%) !important;
+	// }
 }
