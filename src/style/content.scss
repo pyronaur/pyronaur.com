@@ -1,4 +1,13 @@
 .content {
+	a {
+		color: var( --link-color );
+	
+		&:hover,
+		&:focus {
+			color: var( --link-color-hover );
+		}
+	}
+	
 	h1,
 	h2,
 	h3,
@@ -29,11 +38,8 @@
 	p a {
 		font-weight: 700;
 		text-decoration: none;
-		border-bottom: .5px solid transparent;
-		padding-bottom: 4px;
-		&:hover {
-			border-bottom-color: inherit;
-		}
+		border-bottom: .5px dashed;
+		padding-bottom: 1px;
 	}
 
 	pre {
