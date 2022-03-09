@@ -26,6 +26,16 @@
 		margin-bottom: 12px;
 	}
 
+	p a {
+		font-weight: 700;
+		text-decoration: none;
+		border-bottom: .5px solid transparent;
+		padding-bottom: 4px;
+		&:hover {
+			border-bottom-color: inherit;
+		}
+	}
+
 	pre {
 		padding: 33px;
 		margin-bottom: 33px;
