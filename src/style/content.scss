@@ -28,6 +28,8 @@
 
 	pre {
 		padding: 33px 22px;
+		margin-bottom: 33px;
+		margin-top: 33px;
 		border-radius: 18px;
 
 		scrollbar-width: none;
@@ -35,4 +37,9 @@
 			display: none;
 		}
 	}
+}
+
+
+.astro-code {
+	background-color: var( --code-background ) !important;
 }

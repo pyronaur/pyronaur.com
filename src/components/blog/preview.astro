@@ -15,40 +15,40 @@
 
 		<div class="content">{post.preview}</div>
 
-		<b>Read More</b>
+		<div class="read-more">Read more</div>
 	</a>
 </article>
 
 <style lang="scss">
+	
+	article {
+		margin: 75px auto;
+	}
+
 	.post-title h2 { 
 		font-size: 1.3rem;
-		font-weight: 600;
+		margin-bottom: 10px;
 	}
+
 	a { 
-		color: var( --text-color-alt );
+		color: var( --text-color );
 		text-decoration: none;
 		display: block;
+		border: 5px solid var(--i-background-color);
+		padding: 25px;
+		transition: color .1s ease, border-color .1s ease;
 	}
 
 	a:hover {
-		h2 {
-			color: var( --link-color-hover);
-		}
+		border-color: var( --background-color-alt-alt );
+		color: var( --background-color-alt);
 	}
 
-	.content {
-		margin-bottom: 20px;
-	}
-
-	.read-more {
+	.read-more, a:hover .read-more {
 		text-decoration: none;
-		font-weight: 500;
+		font-weight: 600;
 		font-size: .85rem;
 		color: var( --text-color);
-	}
-
-	.preview {
-		margin-bottom: 40px;
 	}
 
 	b {

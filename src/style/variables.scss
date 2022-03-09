@@ -1,10 +1,17 @@
 :root {
 	--container-width: min(85vw, 67ch);
-	--background-color-alt: hsl(188 10% 94%);
-	--background-color: hsl(188 2% 97%);
-	--text-color: hsl(188 5% 27%);
-	--text-color-alt: hsl(188 12% 24%);
+	--background-color: hsl(188 3% 97%);
+	--background-color-alt: hsl(188 3% 90%);
+	--background-color-alt-alt: hsl(188 3% 95%);
+	--text-color: hsl(188 3% 27%);
+	--text-color-alt: hsl(188 3% 24%);
 
-	--link-color: hsl(188 74% 40%);
-	--link-color-hover: hsl(188 74% 50%);
-}
+	--link-color: hsl(188 10% 40%);
+	--link-color-hover: hsl(188 10% 50%);
+
+
+	--i-background-color: hsl(188 3% 3%);
+	--i-text-color: hsl(188 3% 88%);
+
+	--code-background: hsl(188 3% 3%);
+}	

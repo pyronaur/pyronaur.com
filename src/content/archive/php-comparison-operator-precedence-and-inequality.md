@@ -5,7 +5,7 @@ date: "2020-01-17"
 
 Here's a thought exercise, can you tell exactly under what conditions is the following statement true, and when is it false?
 
-```
+```php
 $var = get_var();
 if( ! 'some value' === $var && ! 'some other value' === $var ) {
   echo "Do the thing";
@@ -18,7 +18,7 @@ The real answer is - "Do the thing" is only going to run when `$var` is `false` 
 
 In other words, the condition above, is the same as:
 
-```
+```php
 if( false === $var ) {
   echo "Do the thing";
 }
@@ -26,7 +26,7 @@ if( false === $var ) {
 
 Here's another example to illustrate how the exclamation point ( `!` ) works in PHP conditions:
 
-```
+```php
 // Arrays not equal
 > ['a', 'b'] == ['a', 'b', 'c']
 bool(false)
@@ -54,7 +54,7 @@ bool(false)
 
 The lesson here is to be explicit - if you want to negate a comparison - don't try to save on file size by omitting parenthesis. Or better yet, use strong inequality check directly:
 
-```
+```php
 // As we established, this is a bug:
 ! 'value' === $var
 
