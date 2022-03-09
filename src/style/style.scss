@@ -16,12 +16,8 @@ body {
 }
 
 a {
-	color: var( --link-color );
-
-	&:hover,
-	&:focus {
-		color: var( --link-color-hover );
-	}
+	text-decoration: none;
+	color: var(--text-color);
 }
 
 
