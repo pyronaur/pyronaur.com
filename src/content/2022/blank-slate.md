@@ -1,31 +1,31 @@
 ---
 title: Blank Slate
 slug: blank-slate
-preview: It's time for a change, it's time for a blank slate and this do it differently this time...
+preview: I've worked on so many side projects and blog posts, but I haven't published any of them because they've never seemed good enough. I decided to start from scratch. A Blank Slate for my blog an online presence.
 date: 2022-03-06
 ---
 
-Over the many years of being a developer, I've learned a lot, but I've learned a lot in complete silence. No [learning exhaust](https://www.swyx.io/learn-in-public/).
+I've learned a ton throughout the years, but most of it I've learned in complete silence. No [learning exhaust](https://www.swyx.io/learn-in-public/). No showing my work, no story, nothing.
 
-## Perfectionism sucks.
+## Perfectionism.
 
-Perfectionism is great, as long as it's something you strive for acknowledging that you're unlikely to ever achieve it. Unfortunately for me, for a very long time I've been obsessed with perfectionism, but not in a healthy way.
+Perfectionism is a wonderful thing to pursue, as long as you acknowledge that you're unlikely to ever achieve it. 
 
-I've been obsessed with the idea that whatever I produce has to be perfect and the flip side of that is - it's never perfect, and so my range of action oscillates between not publishing or not starting at all.
+I've been obsessed with perfectionism, but not in a healthy way. Since nothing is ever perfect, my range of action so far has been between no action at all - and - investing a lot of work into something until I eventually give up because it's never good enough.
 
 In the eyes of a perfectionist, the reasons are always sound.
 
-Can't publish because this thing is just not good enough just yet. Work on it some more. Until you give up and start a new idea.
+"Can't publish because this thing is just not good enough just yet. Work on it some more. Until you give up and start a new idea."
 
-or
+– or –
 
-Don't even try to start this thing - you know you'll need to spend months on the idea and it just won't be good enough, so you might as well give up before you even started. Look at all the time I saved you.
+"Don't even try to start this thing - you know you'll need to spend months on the idea and it just won't be good enough, so you might as well give up before you even started."
+
+So what's the cure?
 
 ## Brutalism
 
-In 2017 a trend swooped through the Twitters for a few weeks called [Brutalism](https://www.nngroup.com/articles/brutalism-antidesign). I thought it's bonkers, and I still sort of do.
-
-But - for every tool there's a purpose. And I think I might just have found the use for brutalism that makes sense to me.
+In 2017 a trend swooped through the Twitters for a few weeks called [Brutalism](https://www.nngroup.com/articles/brutalism-antidesign). It's truly brutal, in terms of how "well designed" some of those designs were, but there's a lesson that can be learned from Brutalism. It doesn't have to be perfect. All you need is action.
 
 ## Action
 
@@ -40,7 +40,7 @@ It's time for action and take the uncomfortable path.
 And so this is my blank slate. Here are some features:
 
 **Features**
-* Words written in markdown appear on page
+* Words written in markdown appear on the page
 * Alignment and Spacing is good enough
 * Font is readable
 * Fast
@@ -50,7 +50,4 @@ And so this is my blank slate. Here are some features:
 * No likes feature
 * No comment box
 * No dark mode
-* No design
-
-Tweet comments to [@pyronaur](https://twitter.com/pyronaur)
-
+* No design (*almost)
