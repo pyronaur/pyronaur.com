@@ -12,7 +12,7 @@ Actions can only be removed after they've been added. Makes sense. But sometimes
 
 Have a look at this code and try to think how would you remove the `unwanted_message` function from `customize_title` action:
 
-```
+```php
 // outside the scope of our ability to modify
 $titles = [ 'foobar', 'doobar' ];
 foreach ( $titles as $raw_title ) {
@@ -37,11 +37,11 @@ Can you see what the code above does? It's going to display "_foobar_" and "_doo
 
 So how do you remove it if you cannot access the code above?
 
-![](images/image.jpg)
+![](images/archive/tool-expectations.jpg)
 
 The fix is actually very simple - **remove action before it's triggered on the same action hook**.  You add another action that's executed before `unwanted_message` to remove `unwanted_message`. Like so:
 
-```
+```php
 add_action( 'customize_title',
 	function () {
 		remove_action( 'customize_title', 'unwanted_message' );
@@ -56,7 +56,7 @@ Actions are run in an order by priority. The default priority for all actions is
 
 Using PHP anonymous functions it's easy to make a helper function that's just going to unconditionally detach an action that we don't want. Doing the same thing as above, but in a reusable & pretty way.
 
-```
+```php
 function always_remove_action( $action, $callback, $priority = 10 ) {
 
 	add_action( $action,

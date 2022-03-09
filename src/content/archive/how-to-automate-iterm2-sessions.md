@@ -56,7 +56,7 @@ iterm2.run_until_complete(main)
 
 You can use \`await {pane_name}.async_split_pane\` to split and create as many panes as you want in whatever arrangement you'd like. The code above creates 4 panes evenly split in a 2 by 2 square, like so:
 
-![](images/Screen-Shot-2020-08-27-at-3.49.09-PM-1024x903.jpg)
+![](images/archive/iterm-panes.jpg)
 
 **Step 3: Launch your script**
 

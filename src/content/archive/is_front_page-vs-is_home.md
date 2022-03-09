@@ -38,11 +38,11 @@ The home page is the posts page and your front page is the same as home page. If
 
 Start simple. Your homepage display: "Your latest posts"
 
-[![](images/Screen-Shot-2020-11-10-at-1.00.36-PM.jpg)](https://pyronaur.com/wp-content/uploads/2020/11/Screen-Shot-2020-11-10-at-1.00.36-PM.jpg)
+[!["Your Latest posts"](images/archive/homepage-latest-page.jpg)](images/archive/homepage-latest-page.jpg)
 
 #### Static page
 
-[![](images/Screen-Shot-2020-11-10-at-1.10.54-PM.jpg)](https://pyronaur.com/wp-content/uploads/2020/11/Screen-Shot-2020-11-10-at-1.10.54-PM.jpg)
+[![Static page](images/archive/homepage-static-page.jpg)](images/archive/homepage-static-page.jpg)
 
 |                                  |        |
 | -------------------------------- | ------ |
