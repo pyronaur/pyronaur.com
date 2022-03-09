@@ -19,7 +19,6 @@ export function single(post): Post {
 }
 
 export function blog(posts) {
-	console.log(posts.map(post => post.slug))
 	return all(posts)
 		.filter(post => !post.file.pathname.includes("/archive/"));
 }
