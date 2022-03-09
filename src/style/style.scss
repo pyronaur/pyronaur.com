@@ -23,3 +23,9 @@ a {
 		color: var( --link-color-hover );
 	}
 }
+
+
+::selection {
+	background-color: var( --i-background-color );
+	color: var( --i-text-color)
+}
