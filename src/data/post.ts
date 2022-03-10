@@ -25,6 +25,7 @@ export function blog(posts): Post[] {
 
 export function all(posts): Post[] {
 	return posts
+		.filter(post => post.title )
 		.map(post => single(post))
 		.filter(post => true !== post.draft)
 		.sort((a, b) => b.timestamp - a.timestamp)
