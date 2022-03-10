@@ -18,7 +18,7 @@ export function single(post): Post {
 	}
 }
 
-export function blog(posts) {
+export function blog(posts): Post[] {
 	return all(posts)
 		.filter(post => !post.file.pathname.includes("/archive/"));
 }
