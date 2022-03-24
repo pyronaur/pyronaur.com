@@ -10,7 +10,7 @@ In the spirit of producing my own [learning exhaust](/begin-again), I thought it
 
 ## Zoo examples are a weak shortcut
 
-Design Patterns is a book really well written, and it does explain the concepts really well, but I think there's room for improvement in the examples that the book provides, as they're too "Zoo Examples" kind:
+Design Patterns is a book really well written, and it does explain the concepts really well, but I think there's room for improvement in the examples that the book provides, as they're too abstract:
 
 ```ts
 class Dog extends Animal {}
