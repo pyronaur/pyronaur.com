@@ -1,3 +1,6 @@
+// Which mode is the environment running in? https://vitejs.dev/guide/env-and-mode.html#intellisense-for-typescript
+const { MODE } = import.meta.env;
+
 export type Post = {
 	title: string,
 	slug: string,
@@ -14,20 +17,21 @@ export function single(post): Post {
 	return {
 		...post,
 		slug: slug,
+		draft: post.file.pathname.split('/').reverse()[1] === 'drafts',
 		timestamp: (new Date(post.date)).valueOf()
 	}
 }
 
 export function blog(posts): Post[] {
-	return all(posts)
+	return published(posts)
 		.filter(post => !post.file.pathname.includes("/archive/"));
 }
 
-export function all(posts): Post[] {
+export function published(posts): Post[] {
 	return posts
 		.filter(post => post.title )
 		.map(post => single(post))
-		.filter(post => true !== post.draft)
+		.filter(post => MODE === 'development' || !post.draft)
 		.sort((a, b) => b.timestamp - a.timestamp)
 }
 
