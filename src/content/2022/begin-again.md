@@ -1,6 +1,6 @@
 ---
 title: Begin Again
-preview: I've worked on so many side projects and blog posts, but I haven't published any of them because they've never seemed good enough. I decided to start from scratch. A Blank Slate for my blog an online presence.
+preview: I've worked on so many side projects and blog posts, but I haven't published any of them because they've never seemed good enough. I decided to start from scratch. A Blank Slate for my blog and online presence.
 date: 2022-03-06
 ---
 
@@ -31,15 +31,15 @@ In 2017 a trend swooped through Twitter for a few weeks called [Brutalism](https
 
 ## Action
 
-If brutalist design is what I'm after, I can let my perfectionism loose on it. Go ahead, enjoy your brutally simple goal.
+If brutalist design is what I'm after, I can let my perfectionism loose on it. Go ahead, and enjoy your brutally simple goal.
 
-Time and time again in my life I've found that the best things come out of doing something that I feel resistance to. Something that's brutally simple, is just not good enough for the perfectionist. So there's the resistance that I've felt for too long. It's time for action and take the uncomfortable path.
+Time and time again, I've found that the best things come out of doing something that I feel resistance to. Something that's brutally simple, is just not good enough for the perfectionist. So there's the resistance that I've felt for too long. It's time for action, to take the uncomfortable path.
 
 This is my blank slate. Here are some features:
 
 **Features**
 * Words written in markdown appear on the page
-* Alignment and Spacing is good enough
+* Alignment and Spacing are good enough
 * Font is readable
 * Fast
 
@@ -53,4 +53,10 @@ This is my blank slate. Here are some features:
 
 ## Begin again
 
-Begin again is such an easy phrase. It's not starting over, it's not a huge deal, it's not a complete reset, it's just a part of the process - it's just beginning again, and again.
+Begin again is a phrase that I've internalized from Joseph Goldstein with his guided meditations on the [10 percent app](https://www.tenpercent.com/guided-meditations). Whenever a thought distracts you - simply begin again.
+
+Begin again is such an easy phrase. It's not starting over, it's not a huge deal, it's not a complete reset, it's just a part of the process - it's just beginning again, and again and again.
+
+So that's what I'm doing now.
+
+Time to begin again.
