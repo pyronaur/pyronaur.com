@@ -2,8 +2,7 @@
 import { blog } from "@data/post"
 import Blog from "@layouts/blog";
 import Preview from "@components/blog/preview";
-
-const posts = blog( await Astro.fetchContent('../content/**/*.md') );
+const posts = blog( await Astro.glob('../content/**/*.md') );
 ---
 
 <Blog title="@pyronaur">
