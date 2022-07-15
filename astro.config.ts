@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import svelte from "@astrojs/svelte";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,5 +19,6 @@ export default defineConfig({
       wrap: false
     }
   },
-  integrations: [svelte()]
+  site: "http://localhost:3000",
+  integrations: [svelte(), sitemap()]
 });
