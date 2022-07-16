@@ -1,6 +1,5 @@
 // Which mode is the environment running in? https://vitejs.dev/guide/env-and-mode.html#intellisense-for-typescript
 const { MODE } = import.meta.env;
-// import { rss } from '@astrojs/rss';
 
 export type Post = {
 	title: string,
@@ -40,20 +39,3 @@ export function published(posts): Post[] {
 		.filter(post => MODE === 'development' || !post.draft)
 		.sort((a, b) => b.timestamp - a.timestamp)
 }
-
-
-export function getRSS(posts: Post[]) {
-	return {
-		title: 'Pyronaur.com RSS',
-		description: 'Pyronaur.com RSS Feed',
-		stylesheet: true,
-		customData: `<language>en-us</language>`,
-		items: posts.map((post: Post) => ({
-			title: post.title,
-			description: post.preview,
-			link: post.slug,
-			pubDate: post.date,
-		})),
-	}
-}
-
