@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import svelte from "@astrojs/svelte";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
@@ -19,6 +18,6 @@ export default defineConfig({
       wrap: false
     }
   },
-  site: "http://localhost:3000",
-  integrations: [svelte(), sitemap()]
+  site: "https://pyronaur.com",
+  integrations: [sitemap()]
 });
