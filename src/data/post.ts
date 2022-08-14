@@ -15,7 +15,7 @@ export type Post = {
 export function single(post): Post {
 	
 	const file = post.file;
-	const slug = file.split('/').reverse()[0].replace('.md', '');
+	const slug = file.split('/').reverse()[0].replace('.mdx', '').replace('.md', '');
 
 	return {
 		...post.frontmatter,

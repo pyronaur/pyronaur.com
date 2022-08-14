@@ -1,5 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
+import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,5 +21,5 @@ export default defineConfig({
     }
   },
   site: "https://pyronaur.com",
-  integrations: [sitemap()]
+  integrations: [ mdx(), sitemap(),  svelte()]
 });
