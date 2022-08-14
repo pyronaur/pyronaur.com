@@ -2,7 +2,7 @@ import { blog, Post } from '../data/post';
 import rss from '@astrojs/rss';
 
 const imports = import.meta.glob('../content/**/*.md', { eager: true })
-const posts = await Promise.all(Object.values(imports).map(f => f()))
+const posts = await Promise.all(Object.values(imports))
 
 export const get = () => rss({
 	title: 'Pyronaur.com RSS',
