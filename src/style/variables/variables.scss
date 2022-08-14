@@ -1,0 +1,21 @@
+@use "dark" as *;
+@use "light" as *;
+
+:root {
+	--container-width: min(85vw, 700px);
+
+	&,
+	.light {
+		@include light();
+	}
+
+	.dark {
+		@include dark();
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		@include dark();
+	}
+}

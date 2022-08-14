@@ -1,5 +1,4 @@
-:root {
-	--container-width: min(85vw, 700px);
+@mixin light() {
 	--background-color: hsl(188 3% 97%);
 	--background-color-alt: hsl(188 3% 90%);
 	--background-color-alt-alt: hsl(188 3% 95%);
