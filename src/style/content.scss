@@ -94,3 +94,11 @@ blockquote.tweet-card {
 	margin-bottom: 40px;
 	border-color: rgb(196, 196, 196);
 }
+
+a.tweet-link {
+	text-align: right;
+	font-size: .75rem;
+	letter-spacing: 0.5px;
+	// Twitter blue:
+	color: #1da1f2;
+}
