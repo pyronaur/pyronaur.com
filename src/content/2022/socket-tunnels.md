@@ -14,7 +14,7 @@ There's an easy solution - assign that tunnel to a socket using `-S`, for exampl
 ssh -f -N -M -S /tmp/the.sock -L 8242:the_host:8242 the_sock
 ```
 
-This is a bit labor intensive. I like the socket idea, but I want to be quick about it. Creating aliases is one way of doing it, but lately, I really prefer [zx](https://github.com/google/zx) with [zxb](https://github.com/pyronaur/zxb]:
+This is a bit labor intensive. I like the socket idea, but I want to be quick about it. Creating aliases is one way of doing it, but lately, I really prefer [zx](https://github.com/google/zx) with [zxb](https://github.com/pyronaur/zxb):
 
 ## SSH Socket utility
 
