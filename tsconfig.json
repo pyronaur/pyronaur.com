@@ -17,6 +17,9 @@
 			"@data/*": [
 				"src/data/*.ts"
 			],
+			"@post-components/*": [
+				"src/components/post-components/*"
+			],
 		},
 		// Enable JSON imports.
 		"resolveJsonModule": true,
