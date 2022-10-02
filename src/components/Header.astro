@@ -1,6 +1,11 @@
+---
+import DarkModeToggle from "@components/blog/DarkModeToggle.svelte";
+---
+
 <div class="top">
 	<div class="container">
 		<a href="/">pyronaur</a>
+		<DarkModeToggle client:load />
 	</div>
 </div>
 
@@ -13,5 +18,10 @@
 		font-size: 1.4rem;
 		font-weight: bold;
 		text-decoration: none;
+	}
+
+	.container {
+		display: flex;
+		justify-content: space-between;
 	}
 </style>
