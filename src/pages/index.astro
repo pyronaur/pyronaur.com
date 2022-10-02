@@ -1,7 +1,7 @@
 ---
 import { blog } from "@data/post"
 import Blog from "@layouts/blog";
-import Preview from "@components/blog/preview";
+import Preview from "@components/blog/preview.astro";
 const posts = blog( await Astro.glob('../content/**/*.{md,mdx}') );
 ---
 
