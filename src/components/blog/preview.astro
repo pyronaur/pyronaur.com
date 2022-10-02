@@ -1,61 +1,61 @@
 ---
-	import type { Post } from '@data/post';
-	const post: Post = Astro.props.post
+import type { Post } from "@data/post";
+const post: Post = Astro.props.post;
+const date = new Date(post.date);
+const humanReadableDate = date.toISOString().split("T")[0];
 ---
 
 <article>
 	<a class="preview" href={`/${post.slug}`}>
-		
-		<div class="top">
-			<div class="post-title">
-				<h2>{post.title}</h2>
-			</div>
-		</div>
-
-		<div class="content">{post.preview}</div>
-
-		<div class="read-more">Read more</div>
+		<h2>{post.title}</h2>
+		<p>{post.preview}</p>
 	</a>
+	<div class="date">
+		<time datetime={date.toISOString()}>{humanReadableDate}</time>
+	</div>
 </article>
 
 <style lang="scss">
-	
 	article {
-		margin: 75px auto;
+		margin: 20px auto;
+		padding-bottom: 20px;
+		border-bottom: 1px dashed var(--background-color-alt);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&:first-child {
+			margin-top: 60px;
+		}
 	}
 
-	.post-title h2 { 
-		font-size: 1.3rem;
-		margin-bottom: 10px;
+	h2 {
+		font-size: 1rem;
+		font-weight: 500;
 	}
 
-	a { 
-		color: var( --text-color );
+	a {
+		color: var(--text-color);
 		text-decoration: none;
 		display: block;
-		border: 5px solid var(--i-background-color);
-		padding: 25px;
-		transition: color .1s ease, border-color .1s ease;
 	}
 
-	a:hover {
-		border-color: var( --background-color-alt-alt );
-		color: var( --background-color-alt);
+	a:hover h2 {
+		color: var(--link-color-hover);
 	}
 
-	.read-more, a:hover .read-more {
-		text-decoration: none;
-		font-weight: 600;
-		font-size: .85rem;
-		color: var( --text-color);
-	}
-
-	.content {
-		margin-bottom: 10px;
+	p {
+		font-size: 0.8rem;
+		max-width: 64ch;
 	}
 
 	b {
 		font-weight: 600;
 		font-size: 0.925rem;
+	}
+	.date {
+		font-size: 0.7rem;
+		min-width: 14ch;
+		color: var(--text-color-soft);
+		text-align: right;
 	}
 </style>
