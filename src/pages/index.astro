@@ -6,7 +6,7 @@ const posts = blog( await Astro.glob('../content/**/*.{md,mdx}') );
 ---
 
 <Blog title="@pyronaur">
-	<div class="container">
+	<div class="grid">
 		{posts.map((p) => <Preview post={p} />)}
 	</div>
 </Blog>
