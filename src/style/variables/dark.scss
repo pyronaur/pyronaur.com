@@ -1,4 +1,8 @@
 @mixin dark {
+	--accent-background: hsl(188 1% 7%);
+	--accent-text: hsl(188 17% 88%);
+	--accent-mild: hsl(188 7% 48%);
+	
 	--background-color: hsl(188 3% 11%);
 	--background-color-alt: hsl(188 10% 22%);
 	--background-color-alt-alt: hsl(188 3% 30%);

@@ -1,4 +1,8 @@
 @mixin light() {
+	--accent-background: hsl(188 12% 95%);
+	--accent-text: hsl(188 33% 7%);
+	--accent-mild: hsl(188 6% 44%);
+	
 	--background-color: hsl(188 3% 97%);
 	--background-color-alt: hsl(188 3% 90%);
 	--background-color-alt-alt: hsl(188 3% 95%);
