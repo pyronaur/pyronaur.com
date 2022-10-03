@@ -1,18 +1,25 @@
 ---
-	import "../../style/style.scss";
-	import Header from "@components/Header.astro";
-	const {title} = Astro.props;
+import "../../style/style.scss";
+import Header from "@components/Header.astro";
+const { title } = Astro.props;
 ---
+
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>{title}</title>
-</head>
-<body>
-	<div class="main">
-		<Header />
-		<slot />
-	</div>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// Set the right color mode based on users prefered color scheme.
+			document.body.classList.add(
+				sessionStorage.getItem("darkMode") === "true" ? "dark" : "light"
+			);
+		</script>
+		<div class="main">
+			<Header />
+			<slot />
+		</div>
+	</body>
 </html>
