@@ -71,10 +71,6 @@
 			letter-spacing: 1px;
 			font-size: .75rem;
 		}
-		:global(a) {
-			text-decoration: underline;
-			color: currentColor;
-		}
 	}
 
 	.sticky {
