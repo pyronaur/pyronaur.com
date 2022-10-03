@@ -29,10 +29,11 @@
 			return false;
 		}
 
-		const isDarkModeInDOM = Array.from(document.body.classList).includes(
+		// Compare the current status to avoid triggering the animation on load.
+		const DOMDarkModeStatus = Array.from(document.body.classList).includes(
 			"dark"
 		);
-		if (isDarkModeInDOM === enable) {
+		if (DOMDarkModeStatus === enable) {
 			return;
 		}
 
