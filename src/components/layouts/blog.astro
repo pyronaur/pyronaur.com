@@ -12,8 +12,8 @@ const { title } = Astro.props;
 		<link rel="prefetch" href="/assets/moon.svg" as="image" />
 	</head>
 	<body>
-		<script type="text/javascript">
-			// // Set the right color mode based on users prefered color scheme.
+		<script>
+			// Set the right color mode based on users prefered color scheme.
 			document.body.classList.add(
 				sessionStorage.getItem("darkMode") === "true" ? "dark" : "light"
 			);
