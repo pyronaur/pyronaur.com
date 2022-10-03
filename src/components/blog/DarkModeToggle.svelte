@@ -1,73 +1,69 @@
 <script lang="ts">
-	import { onMount, tick } from "svelte";
-	import { quartOut } from "svelte/easing";
-
-	let darkMode: boolean | undefined;
-
-	onMount(async () => {
-		const darkSession = window.sessionStorage.getItem("darkMode");
-		if (null === darkSession) {
-			darkMode = window.matchMedia(
-				"(prefers-color-scheme: dark)"
-			).matches;
-		} else {
-			darkMode = "true" === darkSession;
+	function isDarkMode() {
+		if (import.meta.env.SSR) {
+			return false;
 		}
-	});
+
+		const sessionData = window.sessionStorage.getItem("darkMode");
+		if (sessionData) {
+			return "true" === sessionData;
+		}
+
+		return window.matchMedia("(prefers-color-scheme: dark)").matches;
+	}
 
 	function toggleDarkMode(e: KeyboardEventInit) {
 		if (e.key !== "Escape") {
 			return;
 		}
-		darkMode = !darkMode;
+		darkModeEnabled = !darkModeEnabled;
 	}
 
-	$: if (undefined !== darkMode) {
-		if (darkMode) {
+	function triggerSpin() {
+		spin = true;
+		setTimeout(() => (spin = false), spinDuration);
+	}
+
+	function changeDarkMode(enable = false) {
+		if (import.meta.env.SSR) {
+			return false;
+		}
+
+		const isDarkModeInDOM = Array.from(document.body.classList).includes(
+			"dark"
+		);
+		if (isDarkModeInDOM === enable) {
+			return;
+		}
+
+		if (darkModeEnabled) {
 			document.body.classList.remove("light");
 			document.body.classList.add("dark");
 		} else {
 			document.body.classList.remove("dark");
 			document.body.classList.add("light");
 		}
-		sessionStorage.setItem("darkMode", darkMode.toString());
+		triggerSpin();
+		window.sessionStorage.setItem("darkMode", darkModeEnabled.toString());
 	}
 
-	function spin(node, { duration }) {
-		return {
-			duration,
-			css: (t) => {
-				const eased = quartOut(t);
-				const direction = darkMode ? 1 : -1;
-				return `transform: scale(${eased}) rotate(${
-					eased * 360 * direction
-				}deg);`;
-			},
-		};
-	}
+	let spin = false;
+	const spinDuration = 500;
+	let darkModeEnabled = isDarkMode();
+	$: changeDarkMode(darkModeEnabled);
 </script>
 
 <svelte:window on:keydown={toggleDarkMode} />
 
-{#if darkMode !== undefined}
-	<button class="toggle-dark-mode" on:click={() => (darkMode = !darkMode)}>
-		{#if darkMode}
-			<img
-				in:spin={{ duration: 600 }}
-				src="/assets/moon.svg"
-				alt="Enable Light Mode"
-				class="dark-icon"
-			/>
-		{:else}
-			<img
-				in:spin={{ duration: 600 }}
-				src="/assets/sun.svg"
-				alt="Enable Dark Mode"
-				class="light-icon"
-			/>
-		{/if}
-	</button>
-{/if}
+<button
+	class="toggle-dark-mode"
+	on:click={() => (darkModeEnabled = !darkModeEnabled)}
+>
+	<div class="icon" class:spin>
+		<img src="/assets/moon.svg" alt="Enable Light Mode" class="dark-icon" />
+		<img src="/assets/sun.svg" alt="Enable Dark Mode" class="light-icon" />
+	</div>
+</button>
 
 <style lang="scss">
 	.toggle-dark-mode {
@@ -76,5 +72,22 @@
 		cursor: pointer;
 		padding: 0;
 		outline: 0;
+	}
+	@keyframes spin {
+		0% {
+			transform: scale(0) rotate(0deg);
+		}
+		100% {
+			transform: scale(1) rotate(720deg);
+		}
+	}
+	:global(.dark) .light-icon {
+		display: none;
+	}
+	:global(.light) .dark-icon {
+		display: none;
+	}
+	.spin {
+		animation: spin 444ms cubic-bezier(0.075, 0.82, 0.17, 1.135);
 	}
 </style>

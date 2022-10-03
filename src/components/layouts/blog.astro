@@ -9,10 +9,11 @@ const { title } = Astro.props;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>{title}</title>
+		<link rel="prefetch" href="/assets/moon.svg" as="image" />
 	</head>
 	<body>
 		<script type="text/javascript">
-			// Set the right color mode based on users prefered color scheme.
+			// // Set the right color mode based on users prefered color scheme.
 			document.body.classList.add(
 				sessionStorage.getItem("darkMode") === "true" ? "dark" : "light"
 			);
