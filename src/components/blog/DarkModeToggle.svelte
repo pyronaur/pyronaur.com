@@ -12,7 +12,7 @@
 		return window.matchMedia("(prefers-color-scheme: dark)").matches;
 	}
 
-	function toggleDarkMode(e: KeyboardEventInit) {
+	function toggleWithKeyboard(e: KeyboardEventInit) {
 		if (e.key !== "Escape") {
 			return;
 		}
@@ -56,7 +56,7 @@
 	$: changeDarkMode(darkModeEnabled);
 </script>
 
-<svelte:window on:keydown={toggleDarkMode} />
+<svelte:window on:keydown={toggleWithKeyboard} />
 
 <button
 	class="toggle-dark-mode"
