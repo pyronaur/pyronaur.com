@@ -14,9 +14,12 @@ const { title } = Astro.props;
 	<body>
 		<script>
 			// Set the right color mode based on users prefered color scheme.
-			document.body.classList.add(
-				sessionStorage.getItem("darkMode") === "true" ? "dark" : "light"
-			);
+			const darkMode = sessionStorage.getItem("darkMode");
+			if (null !== darkMode) {
+				document.body.classList.add(
+					darkMode === "true" ? "dark" : "light"
+				);
+			}
 		</script>
 		<div class="main">
 			<Header />
