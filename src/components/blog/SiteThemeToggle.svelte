@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
 	function isDarkMode() {
 		if (import.meta.env.SSR) {
 			return false;
@@ -58,6 +60,14 @@
 		// Save the dark mode status in the session storage.
 		sessionStorage.setItem("darkMode", darkMode.toString());
 	}
+
+	onMount(() => {
+		window
+			.matchMedia("(prefers-color-scheme: dark)")
+			.addEventListener("change", (e) => {
+				darkMode = e.matches;
+			});
+	});
 
 	let spinDirection: "left" | "right" = "right";
 	let darkMode = isDarkMode();
