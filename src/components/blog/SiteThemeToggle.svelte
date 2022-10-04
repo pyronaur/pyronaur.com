@@ -77,7 +77,7 @@
 
 <svelte:window on:keydown={toggleWithKeyboard} />
 
-<button id="site-theme-toggle" on:click={() => (darkMode = !darkMode)}>
+<button on:click={() => (darkMode = !darkMode)}>
 	<div
 		class="icon"
 		class:spin-left={spin && spinDirection === "left"}
@@ -89,7 +89,7 @@
 </button>
 
 <style lang="scss">
-	#site-theme-toggle {
+	button {
 		background: none;
 		border: none;
 		cursor: pointer;
