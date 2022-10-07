@@ -27,14 +27,14 @@
 		}
 	}
 
-	p a {
+	p a, li a{
 		font-weight: 700;
 		text-decoration: none;
 		border-bottom: 0.5px dashed;
 		padding-bottom: 1px;
 	}
 
-	p code {
+	p code, li code {
 		font-size: .9rem;
 		font-weight: 500;
 		padding: 2px 5px;
