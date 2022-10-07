@@ -1,13 +1,14 @@
 .content {
-	li > a, p > a {
-		color: var( --link-color );
-	
+	li > a,
+	p > a {
+		color: var(--link-color);
+
 		&:hover,
 		&:focus {
-			color: var( --link-color-hover );
+			color: var(--link-color-hover);
 		}
 	}
-	
+
 	h1,
 	h2,
 	h3,
@@ -29,8 +30,18 @@
 	p a {
 		font-weight: 700;
 		text-decoration: none;
-		border-bottom: .5px dashed;
+		border-bottom: 0.5px dashed;
 		padding-bottom: 1px;
+	}
+
+	p code {
+		font-size: .9rem;
+		font-weight: 500;
+		padding: 2px 5px;
+		background-color: var(--code-inline-bg);
+		color: var(--code-inline-color);
+		font-family: "Fira Code", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", ui-monospace,
+			Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Courier New", monospace;
 	}
 
 	pre {
@@ -45,7 +56,8 @@
 		}
 	}
 
-	pre, pre * {
+	pre,
+	pre * {
 		line-height: 1.55;
 	}
 
@@ -56,34 +68,30 @@
 		margin-top: 40px;
 		margin-bottom: 40px;
 	}
-	
+
 	tbody tr:nth-child(odd) {
-		background-color: var( --background-color-alt );
+		background-color: var(--background-color-alt);
 	}
 
 	td {
 		padding: 10px;
-		border: 1px solid var( --i-background-color-alt );
+		border: 1px solid var(--i-background-color-alt);
 	}
-	
+
 	blockquote:not([class]) {
-		border-left: 10px solid var( --i-background-color );
+		border-left: 10px solid var(--i-background-color);
 		padding: 20px 40px;
 		margin-top: 40px;
 		margin-bottom: 40px;
-		color: var( --text-color-alt );
+		color: var(--text-color-alt);
 	}
 
 	.astro-code {
 		padding-top: 50px;
-		background-color: var( --code-background ) !important;
+		background-color: var(--code-background) !important;
 		border-radius: 7px;
 	}
-
 }
-
-
-
 
 blockquote.tweet-card {
 	margin-top: 40px;
@@ -93,7 +101,7 @@ blockquote.tweet-card {
 
 a.tweet-link {
 	text-align: right;
-	font-size: .75rem;
+	font-size: 0.75rem;
 	letter-spacing: 0.5px;
 	// Twitter blue:
 	color: #1da1f2;
