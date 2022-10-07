@@ -1,6 +1,6 @@
 .grid,
-.grid--inner {
-	row-gap: 24px;
+.grid--inner{
+	row-gap: 30px;
 	display: grid;
 	grid-template-columns:
 		[full-start]
@@ -53,7 +53,7 @@
 		grid-column: main;
 	}
 
-	.grid__full {
+	.grid__full, .astro-code{
 		grid-column: full;
 	}
 
@@ -67,5 +67,14 @@
 
 	.grid__wide {
 		margin: 30px 0;
+	}
+
+	.astro-code {
+		grid-column: ultrawide;
+		grid-template-columns: subgrid;
+		display: grid;
+	}
+	.astro-code code {
+		grid-column: main;
 	}
 }
