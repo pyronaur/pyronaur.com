@@ -2,6 +2,7 @@
 	import { onMount } from "svelte";
 
 	function isDarkMode() {
+		// Allows this function to be run early without waiting for onMount
 		if (import.meta.env.SSR) {
 			return false;
 		}
@@ -27,24 +28,18 @@
 	}
 
 	function toggleColorScheme(enableDarkMode = false) {
+		// Allows this function to be run early without waiting for onMount
 		if (import.meta.env.SSR) {
 			return false;
 		}
 
-		// Compare the current status to avoid triggering the animation on load.
-		const bodyClasses = Array.from(document.body.classList);
-		const domLightMode = bodyClasses.includes("light");
-		const domDarkMode = bodyClasses.includes("dark");
-
-		// If the DOM already has the correct class, don't do anything.
-		// But only if DOM has a class, otherwise this is the first load
-		// and we need to set the correct class.
-		if ((domDarkMode || domLightMode) && domDarkMode === enableDarkMode) {
+		const sessionData = window.sessionStorage.getItem("darkMode");
+		if( sessionData && enableDarkMode === ("true" === sessionData) ) {
 			return;
 		}
 
 		// Change the body class based on the current status.
-		if (darkMode) {
+		if (enableDarkMode) {
 			spinDirection = "left";
 			document.body.classList.remove("light");
 			document.body.classList.add("dark");
@@ -97,12 +92,12 @@
 		outline: 0;
 	}
 
-	.spin {
+	%spin {
 		animation: spin 575ms cubic-bezier(0.075, 0.82, 0.17, 1.135);
 	}
 
 	.spin-right {
-		@extend .spin;
+		@extend %spin;
 		@keyframes spin {
 			0% {
 				transform: scale(0) rotate(0deg);
@@ -113,7 +108,7 @@
 		}
 	}
 	.spin-left {
-		@extend .spin;
+		@extend %spin;
 		@keyframes spin {
 			0% {
 				transform: scale(0) rotate(0deg);
