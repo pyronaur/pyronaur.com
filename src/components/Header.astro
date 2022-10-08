@@ -10,7 +10,9 @@ import SiteThemeToggle from "@components/blog/SiteThemeToggle.svelte";
 			<a href="https://twitter.com/pyronaur" rel="me" target="_blank">
 				<Icon name="mdi:twitter" />
 			</a>
-			<SiteThemeToggle client:load />
+			<div class="dark-mode">
+				<SiteThemeToggle client:load />
+			</div>
 		</div>
 	</div>
 </div>
@@ -32,6 +34,12 @@ import SiteThemeToggle from "@components/blog/SiteThemeToggle.svelte";
 		align-items: center;
 	}
 
+	.dark-mode {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
 	[astro-icon] {
 		width: 24px;
 		color: black;
@@ -41,10 +49,10 @@ import SiteThemeToggle from "@components/blog/SiteThemeToggle.svelte";
 	}
 
 	.icons {
-		display: flex;
-		// height: 40px;
-		justify-content: center;
+		display: grid;
+		grid-template-columns: 45px 45px;
 		align-items: center;
-		gap: 40px;
+		height: 45px;
+		justify-content: end;
 	}
 </style>
