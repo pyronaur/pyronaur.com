@@ -111,13 +111,13 @@ That's why a special Vite global `import.meta.env.SSR` is used to prevent the fu
 Adding `toggleColorScheme` to the `onMount` action would set the right body class when the Svelte component is mounted.
 
 In Astro, I'm using `client:load` directive to load the component asynchronously, which means that `onMount` is going to fire after the page is fully loaded.
-That's too late because styles have loaded already, and if the system preference differs from user preference, it's going to cause a "flash of blinding content" on page load.
+That's too late because styles have loaded already, and if the system preference differs from user preference, it's going to cause a "flash of blinding content" on the page load.
 
 Adding a little bit of vanilla JavaScript to the top of the page right after the opening `<body>` tag is going to fix that:
 
 ```js
 <body>
-    <script>
+    <script is:inline>
         // Set the right color mode based on the user's preferred color scheme.
         const darkMode = sessionStorage.getItem("darkMode");
         if (null !== darkMode) {
@@ -129,6 +129,7 @@ Adding a little bit of vanilla JavaScript to the top of the page right after the
 
 ```
 
+**Note:** It's important to add `is:inline` directive in Astro.build to ensure that the script isn't moved elsewhere - it needs to be executed right after the body element is available, otherwise there will be a slight FOUC (flash of unstyled content).
 ### Style
 The toggle changes the body class when the button is clicked, but it should also respect the user system preferences for dark mode.
 
