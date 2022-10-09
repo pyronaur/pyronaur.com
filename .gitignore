@@ -18,4 +18,4 @@ yarn-error.log*
 /.vscode
 
 # I'm using symlinks to store and preview draft posts locally
-src/content/drafts
+src/content/draft
