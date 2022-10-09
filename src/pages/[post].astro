@@ -1,27 +1,31 @@
 ---
 import Blog from "@layouts/blog";
 import Date from "@components/utilities/Date.astro";
-import { published } from "@data/post"
+import { published } from "@data/post";
 
 export async function getStaticPaths({ rss }) {
-	const posts = published(await Astro.glob('../content/**/*.{md,mdx}'));
+	const posts = published(await Astro.glob("../content/**/*.{md,mdx}"));
 
 	return posts.map((post) => {
 		return {
 			params: { post: post.slug },
-			props: { post }
+			props: { post },
 		};
-	})
+	});
 }
 
 // Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
-const { post: { Content }, post } = Astro.props;
+const {
+	post: { Content },
+	post,
+} = Astro.props;
 ---
+
 <Blog title={post.title}>
 	<div class="post-header">
 		<h1 class="post-title"><a href={`/${post.slug}`}>{post.title}</a></h1>
 		<div class="post-date">
-			<Date date={post.date}/>
+			<Date date={post.date} />
 		</div>
 	</div>
 	<div class="grid content">
@@ -29,15 +33,14 @@ const { post: { Content }, post } = Astro.props;
 	</div>
 </Blog>
 
-
 <style lang="scss">
-	.post-header { 
+	.post-header {
 		margin: 12vh auto;
 		width: max-content;
-		max-width: var( --container-width );
+		max-width: var(--container-width);
 		a {
 			font-size: 3.75rem;
-			color: var( --text-color-alt );
+			color: var(--text-color-alt);
 		}
 	}
 
