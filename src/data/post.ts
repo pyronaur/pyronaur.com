@@ -14,6 +14,7 @@ export interface Post {
 	slug: string,
 	preview: string,
 	timestamp: number,
+	category: string,
 	draft: boolean,
 	date: string,
 	file: string;
@@ -27,12 +28,14 @@ export function post(post: PostMarkdownInstance): Post {
 	const slug = filename.replace(/\.mdx?/, '')
 	const contentPath = file.split("content/")[1];
 	const draft = contentPath.split('/')[0] !== 'public';
+	const category = contentPath.split('/')[1].replace(filename, '')
 
 	return {
 		...post.frontmatter,
 		Content: post.Content,
 		file: post.file,
 		slug: slug,
+		category,
 		draft,
 		timestamp: (new Date(post.frontmatter.date)).valueOf()
 	}
