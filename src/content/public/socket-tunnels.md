@@ -1,6 +1,6 @@
 ---
 title: Socket Tunnels
-preview: Make SSH Tunnels even better by assigning them to a socket file.
+summary: Make SSH Tunnels even better by assigning them to a socket file.
 date: 2022-08-12
 ---
 

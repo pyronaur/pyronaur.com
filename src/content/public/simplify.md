@@ -1,6 +1,6 @@
 ---
 title: Simplify
-preview: Every line of code increases the complexity of a project, which in turn, decreases the overall velocity. So how do we maintain velocity?
+summary: Every line of code increases the complexity of a project, which in turn, decreases the overall velocity. So how do we maintain velocity?
 date: 2022-09-18
 category: principles
 ---

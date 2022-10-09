@@ -1,6 +1,6 @@
 ---
 title: The Pattern Zoo
-preview: Concrete examples are important for learning, but many sources are missing good real-world design pattern examples.
+summary: Concrete examples are important for learning, but many sources are missing good real-world design pattern examples.
 date: 2022-03-24 
 ---
 

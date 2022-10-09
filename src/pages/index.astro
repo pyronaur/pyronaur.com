@@ -1,12 +1,12 @@
 ---
 import { blog } from "@data/post"
 import Blog from "@layouts/blog";
-import Preview from "@components/blog/preview.astro";
+import Summary from "@components/blog/summary.astro";
 const posts = blog( await Astro.glob('../content/**/*.{md,mdx}') );
 ---
 
 <Blog title="@pyronaur">
 	<div class="grid content">
-		{posts.map((p) => <Preview post={p} />)}
+		{posts.map((p) => <Summary post={p} />)}
 	</div>
 </Blog>

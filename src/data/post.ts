@@ -6,13 +6,13 @@ const { MODE } = import.meta.env;
 export type PostMarkdownInstance = MarkdownInstance<{
 	title: string;
 	date: string;
-	preview: string;
+	summary: string;
 }>;
 
 export interface Post {
 	title: string,
 	slug: string,
-	preview: string,
+	summary: string,
 	timestamp: number,
 	category: string,
 	draft: boolean,

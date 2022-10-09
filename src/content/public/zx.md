@@ -1,6 +1,6 @@
 ---
 title: ZX
-preview: You should write scripts more, but can't be bothered learning bash? Take your terminal back with  `zx`.
+summary: You should write scripts more, but can't be bothered learning bash? Take your terminal back with  `zx`.
 date: 2022-09-29
 ---
 

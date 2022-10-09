@@ -1,6 +1,6 @@
 ---
 title: Begin Again
-preview: I've worked on so many side projects and blog posts, but I haven't published any of them because they've never seemed good enough. I decided to start from scratch. A Blank Slate for my blog and online presence.
+summary: I've worked on so many side projects and blog posts, but I haven't published any of them because they've never seemed good enough. I decided to start from scratch. A Blank Slate for my blog and online presence.
 date: 2022-03-06
 ---
 

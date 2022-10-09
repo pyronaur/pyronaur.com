@@ -1,6 +1,6 @@
 ---
 title: Dark Mode Toggle
-preview: How I built a color scheme toggle using Svelte in Astro.
+summary: How I built a color scheme toggle using Svelte in Astro.
 date: 2022-10-07
 ---
 

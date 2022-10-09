@@ -5,10 +5,10 @@ const date = new Date(post.date);
 const humanReadableDate = date.toISOString().split("T")[0];
 ---
 
-<a class="preview" href={`/${post.slug}`}>
+<a class="summary" href={`/${post.slug}`}>
 	<div>
 		<h2>{post.title}</h2>
-		<p>{post.preview}</p>
+		<p>{post.summary}</p>
 	</div>
 	<div class="date">
 		<time datetime={date.toISOString()}>{humanReadableDate}</time>
@@ -16,7 +16,7 @@ const humanReadableDate = date.toISOString().split("T")[0];
 </a>
 
 <style lang="scss">
-	.preview {
+	.summary {
 		padding-bottom: 20px;
 		border-bottom: 1px dashed var(--background-color-alt);
 		display: flex;
