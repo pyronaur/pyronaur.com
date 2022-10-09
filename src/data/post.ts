@@ -11,18 +11,19 @@ export type Post = {
 	file: string,
 }
 
-
 export function single(post): Post {
-	
+
 	const file = post.file;
 	const slug = file.split('/').reverse()[0].replace('.mdx', '').replace('.md', '');
+	const contentPath = file.split("content/")[1];
+	const draft = contentPath.split('/')[0] !== 'public';
 
 	return {
 		...post.frontmatter,
 		Content: post.Content,
 		file: post.file,
 		slug: slug,
-		draft: file.split('/').reverse()[1] === 'drafts',
+		draft,
 		timestamp: (new Date(post.frontmatter.date)).valueOf()
 	}
 }
@@ -34,7 +35,7 @@ export function blog(posts): Post[] {
 
 export function published(posts): Post[] {
 	return posts
-		.filter(post => post.frontmatter.title )
+		.filter(post => post.frontmatter.title)
 		.map(single)
 		.filter(post => MODE === 'development' || !post.draft)
 		.sort((a, b) => b.timestamp - a.timestamp)
