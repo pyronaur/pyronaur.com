@@ -70,9 +70,14 @@
 	}
 
 	.astro-code {
-		grid-column: ultrawide;
-		grid-template-columns: subgrid;
-		display: grid;
+		@extend .grid;
+				
+		@supports (grid-template-columns: subgrid ) {
+			grid-column: ultrawide;
+			grid-template-columns: subgrid;
+			display: grid;
+		}
+		
 	}
 	.astro-code code {
 		grid-column: main;
