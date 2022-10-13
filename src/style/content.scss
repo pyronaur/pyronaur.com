@@ -27,15 +27,17 @@
 		}
 	}
 
-	p a, li a{
+	p a,
+	li a {
 		font-weight: 700;
 		text-decoration: none;
 		border-bottom: 0.5px dashed;
 		padding-bottom: 1px;
 	}
 
-	p code, li code {
-		font-size: .9rem;
+	p code,
+	li code {
+		font-size: 0.9rem;
 		font-weight: 500;
 		padding: 2px 5px;
 		background-color: var(--code-inline-bg);
@@ -89,8 +91,16 @@
 	.astro-code {
 		padding-top: 50px;
 		background-color: var(--code-background) !important;
-		border-radius: 7px;
+		
+		@supports (grid-template-columns: subgrid) {
+			border-radius: 7px;
+		}
 	}
+}
+
+.light .content .astro-code {
+	filter: invert(1) contrast(1.25);
+	background-color: hsl(16 5% 15%) !important;
 }
 
 blockquote.tweet-card {
