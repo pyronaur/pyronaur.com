@@ -1,20 +1,21 @@
 ---
-title: Push Notifications when CLI is done 
-summary: Sometimes tasks take a long time. There's an easy way to create a CLI helper to send push notifications.
+title: Push notifications from the CLI
+summary: Sometimes tasks take a long time. There's an easy way to create a CLI helper to send push notifications when they're done.
 date: 2022-10-13
 ---
 
 Sometimes tasks take a long time.
-Having to check every now and then when the task is completed isn't productive.
+Having to constantly check whether they're done is neither fun nor productive. 
 
 ![XKCD Compiling comic](/images/posts/notify/compiling.png)
 
-That's an easy problem to solve using [zx](/zx] with  [zxb](https://github.com/pyronaur/zxb).
+But it's a solved problem - notifications.
+And they're easy to implement using [zx](/zx) with  [zxb](https://github.com/pyronaur/zxb).
 
-I can create a small wrapper for the [Pushover API](https://pushover.net/api) and send a notification when a task is complete.
+All that's needed is a small wrapper for the [Pushover API](https://pushover.net/api).
 
 ## Create a notify CLI helper
-Download the app on your phone, and [register on pushover.net](https://pushover.net/) - there's a free tier that's perfectly suited for how often I run long tasks.
+Download the Pushover app on your phone, and [register on pushover.net](https://pushover.net/) - there's a free tier that's perfectly suited for this.
 
 Create a pushover APP and store the credentials in your profile file ( `~/.profile` or `~/.zshrc` - whatever is your preference)
 
@@ -63,7 +64,8 @@ if (!message) {
 }
 ```
 
-Send the message to Pushover using `fetch`
+Send the message to Pushover using `fetch`:
+
 ```js
 console.log('Sending message: ', message)
 const result = await fetch(`https://api.pushover.net/1/messages.json`, {
@@ -77,7 +79,7 @@ const result = await fetch(`https://api.pushover.net/1/messages.json`, {
 
 Log whether the CLI managed to send the message:
 
-```
+```js
 if (result.status !== 200) {
     console.error('Failed to send the Pushover message');
     process.exit(1);
@@ -86,6 +88,14 @@ if (result.status !== 200) {
 console.log(chalk.green('Notification sent'));
 ```
 
-This is why I love `zx` in combination with `zxb` - writing small utilities like this is just a couple lines of code and now anytime I need to send myself a push notification, I've got a CLI command available to me to do that quickly.
+Now run your long-running and send the push notification when it's done:
+
+```sh
+./reinstall-containers.sh && notify "Container reinstallation complete"
+```
+
+This is why I love `zx` in combination with `zxb` - writing small utilities like this is just a couple lines of code.
+
+Anytime I need to send myself a push notification, I've got a CLI command available to me to do that quickly.
 
 If I ever forget whether it was `notification` or `notify` or `pushover` or `push`, I can run `zxb ls` and it'll show me all zxb commands that I've written.
