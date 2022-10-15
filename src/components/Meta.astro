@@ -58,7 +58,6 @@ const generic = await getPreviewImage(post, 'generic');
 const url = Astro.url;
 ---
 
-<meta name="og:title" content={post.title.slice(0, 59)} />
 {
 	post.summary && (
 		<meta name="description" content={post.summary.slice(0, 154)} />
@@ -66,15 +65,16 @@ const url = Astro.url;
 	)
 }
 
-<meta property="og:image" content={generic} />
+<meta property="twitter:domain" content="pyronaur.com">
+<meta property="twitter:url" content={url}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@pyronaur">
+<meta name="twitter:image" content={twitter}>
 
+
+<meta name="og:title" content={post.title.slice(0, 59)} />
+<meta property="og:image" content={generic} />
 <meta property="og:url" content={url}>
 <meta property="og:type" content="website">
 <meta property="og:image" content={generic}>
 
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content="@pyronaur">
-<meta property="twitter:domain" content="pyronaur.com">
-<meta property="twitter:url" content={url}>
-<meta name="twitter:image" content={twitter}>
