@@ -57,7 +57,11 @@ const previewURL = await getPreviewImage(post);
 ---
 
 <meta name="og:title" content={post.title.slice(0, 59)} />
-<meta name="og:description" content={post.summary.slice(0, 154)} />
+{
+	post.summary && (
+		<meta name="og:description" content={post.summary.slice(0, 154)} />
+	)
+}
 
 <meta property="og:image" content={previewURL} />
 <meta name="twitter:card" content="summary_large_image" />
