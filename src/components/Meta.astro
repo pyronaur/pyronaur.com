@@ -54,7 +54,8 @@ async function getPreviewImage(post: Post, service: 'twitter' | 'generic', suffi
 }
 
 const previewImage = await getPreviewImage(post, 'twitter');
-const url = Astro.url;
+const url = Astro.url; 
+const previewURL = `https://pyronaur.com/${previewImage}`;
 ---
 
 {
@@ -64,8 +65,8 @@ const url = Astro.url;
 	)
 }
 <meta name="og:title" content={post.title.slice(0, 59)} />
-<meta property="og:image" content={previewImage} />
+<meta property="og:image" content={previewURL} />
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@pyronaur">
-<meta name="twitter:image" content={previewImage}>
+<meta name="twitter:image" content={previewURL}>
