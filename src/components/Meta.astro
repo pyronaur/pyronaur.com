@@ -54,7 +54,6 @@ async function getPreviewImage(post: Post, service: 'twitter' | 'generic', suffi
 }
 
 const previewImage = await getPreviewImage(post, 'twitter');
-const url = Astro.url; 
 const previewURL = `https://pyronaur.com/${previewImage}`;
 ---
 
