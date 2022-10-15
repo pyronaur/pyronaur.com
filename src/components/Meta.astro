@@ -3,9 +3,9 @@ import { Post } from "@data/post";
 import fs from "fs";
 const post: Post = Astro.props.post;
 
-async function getPreviewImage(post: Post, service: 'twitter' | 'generic') {
+async function getPreviewImage(post: Post, service: 'twitter' | 'generic', suffix = '') {
 	const previewDir = `preview`;
-	const previewImageName = `${post.slug}-${service}.png`;
+	const previewImageName = `${post.slug}${suffix}.png`;
 	const previewPath = `./public/${previewDir}/${previewImageName}`;
 	const previewURL = `/${previewDir}/${previewImageName}`;
 
@@ -63,17 +63,13 @@ const url = Astro.url;
 		<meta name="og:description" content={post.summary.slice(0, 154)} />
 	)
 }
-
-<meta property="og:type" content="article" />
-<meta property="twitter:domain" content="pyronaur.com">
-<meta property="twitter:url" content={url}>
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content="@pyronaur">
-<meta name="twitter:image" content={twitter}>
-
-
 <meta name="og:title" content={post.title.slice(0, 59)} />
+<meta property="og:type" content="article" />
 <meta property="og:image" content={twitter} />
 <meta property="og:url" content={url}>
 <meta property="og:type" content="website">
 
+<meta property="twitter:domain" content="pyronaur.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@pyronaur">
+<meta name="twitter:image" content={twitter}>
