@@ -1,0 +1,64 @@
+---
+import { Post } from "@data/post";
+import fs from "fs";
+const post: Post = Astro.props.post;
+
+async function getPreviewImage(post: Post) {
+	const previewDir = `preview`;
+	const previewImageName = `${post.slug}.png`;
+	const previewPath = `./public/${previewDir}/${previewImageName}`;
+	const previewURL = `/${previewDir}/${previewImageName}`;
+
+	if (fs.existsSync(previewPath)) {
+		return previewURL;
+	}
+
+	if (import.meta.env.PROD) {
+		console.log(`Missing preview image for ${post.slug}: ${previewURL}`);
+		throw new Error(`Preview image not found: ${previewPath}`);
+	}
+
+	// Ensure that the directory exists
+	if (!fs.existsSync(`./public/${previewDir}`)) {
+		fs.mkdirSync(`./public/${previewDir}`);
+	}
+
+	const data = {
+		title: post.title,
+		slug: post.slug,
+		description: post.summary,
+		date: post.timestamp.toString(),
+	};
+
+	const previewGenerator = new URL("http://localhost:2900/api/preview");
+	previewGenerator.search = new URLSearchParams(data).toString();
+
+	const image = await fetch(previewGenerator.toString());
+
+	if (!image.ok) {
+		console.error({
+			response: await image.text(),
+			headers: image.headers,
+			status: image.status,
+			statusText: image.statusText,
+			url: previewGenerator.toString(),
+			message: `Failed to generate preview image for ${post.slug}`,
+		});
+		throw new Error(`Failed to generate preview image: ${previewPath}`);
+	}
+
+	const imageBuffer = Buffer.from(await image.arrayBuffer());
+	fs.writeFileSync(previewPath, imageBuffer);
+
+	return previewURL;
+}
+
+const previewURL = await getPreviewImage(post);
+---
+
+<meta name="og:title" content={post.title.slice(0, 59)} />
+<meta name="og:description" content={post.summary.slice(0, 154)} />
+
+<meta property="og:image" content={previewURL} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content={previewURL} />
