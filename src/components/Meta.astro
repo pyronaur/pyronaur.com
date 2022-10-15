@@ -3,9 +3,9 @@ import { Post } from "@data/post";
 import fs from "fs";
 const post: Post = Astro.props.post;
 
-async function getPreviewImage(post: Post) {
+async function getPreviewImage(post: Post, service: 'twitter' | 'generic') {
 	const previewDir = `preview`;
-	const previewImageName = `${post.slug}.png`;
+	const previewImageName = `${post.slug}-${service}.png`;
 	const previewPath = `./public/${previewDir}/${previewImageName}`;
 	const previewURL = `/${previewDir}/${previewImageName}`;
 
@@ -30,7 +30,7 @@ async function getPreviewImage(post: Post) {
 		date: post.timestamp.toString(),
 	};
 
-	const previewGenerator = new URL("http://localhost:2900/api/preview");
+	const previewGenerator = new URL("http://localhost:2900/api/" + service);
 	previewGenerator.search = new URLSearchParams(data).toString();
 
 	const image = await fetch(previewGenerator.toString());
@@ -53,16 +53,28 @@ async function getPreviewImage(post: Post) {
 	return previewURL;
 }
 
-const previewURL = await getPreviewImage(post);
+const twitter = await getPreviewImage(post, 'twitter');
+const generic = await getPreviewImage(post, 'generic');
+const url = Astro.url;
 ---
 
 <meta name="og:title" content={post.title.slice(0, 59)} />
 {
 	post.summary && (
+		<meta name="description" content={post.summary.slice(0, 154)} />
 		<meta name="og:description" content={post.summary.slice(0, 154)} />
 	)
 }
 
-<meta property="og:image" content={previewURL} />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content={previewURL} />
+<meta property="og:image" content={generic} />
+
+<meta property="og:url" content={url}>
+<meta property="og:type" content="website">
+<meta property="og:image" content={generic}>
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@pyronaur">
+<meta property="twitter:domain" content="pyronaur.com">
+<meta property="twitter:url" content={url}>
+<meta name="twitter:image" content={twitter}>
