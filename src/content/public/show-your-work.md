@@ -1,7 +1,7 @@
 ---
 title: Show your work!
 date: 2022-09-17
-summary: Work in public. Document - don't create.
+summary: "Work in public.\nDocument - don't create."
 ---
 
 Over the years I've followed many makers, developers, indie hackers, solopreneurs, and entrepreneurs.

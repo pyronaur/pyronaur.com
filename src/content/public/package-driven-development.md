@@ -1,6 +1,6 @@
 ---
 title: Package Driven Development
-summary: Pluggable systems are everywhere you look. Learn from the success around you and apply the principle to your projects right now.
+summary: "Pluggable systems are everywhere you look.\nLearn from the success around you and apply the principle to your projects right now."
 date: 2022-08-21
 ---
 

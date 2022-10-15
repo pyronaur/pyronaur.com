@@ -26,7 +26,7 @@ async function getPreviewImage(post: Post, service: 'twitter' | 'generic') {
 	const data = {
 		title: post.title,
 		slug: post.slug,
-		description: post.summary || '',
+		description: post.summary?.replace("\n", ' ') || '',
 		date: post.timestamp.toString(),
 	};
 

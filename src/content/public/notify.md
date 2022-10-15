@@ -1,6 +1,7 @@
 ---
 title: Push notifications from the CLI
-summary: Sometimes tasks take a long time. There's an easy way to create a CLI helper to send push notifications when they're done.
+summary: "
+Sometimes tasks take a long time. There's an easy way to create a CLI helper to send push notifications when they're done."
 date: 2022-10-13
 ---
 

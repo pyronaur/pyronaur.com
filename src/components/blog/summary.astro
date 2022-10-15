@@ -8,7 +8,7 @@ const humanReadableDate = date.toISOString().split("T")[0];
 <a class="summary" href={`/${post.slug}`}>
 	<div>
 		<h2>{post.title}</h2>
-		<p>{post.summary}</p>
+		{post.summary?.split("\n").map( text => <p>{text}</p>)}
 	</div>
 	<div class="date">
 		<time datetime={date.toISOString()}>{humanReadableDate}</time>

@@ -1,6 +1,6 @@
 ---
 title: Begin Again
-summary: I've worked on so many side projects and blog posts, but I haven't published any of them because they've never seemed good enough. I decided to start from scratch. A Blank Slate for my blog and online presence.
+summary: "My struggle with perfectionism lead me to work in silence and publish nothing for years.\nIt's time to start for a blank slate."
 date: 2022-03-06
 ---
 
