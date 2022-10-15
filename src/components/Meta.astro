@@ -13,7 +13,7 @@ async function getPreviewImage(post: Post) {
 		return previewURL;
 	}
 
-	if (import.meta.env.PROD) {
+	if (import.meta.env.PROD && import.meta.env.GENERATE !== "true") {
 		console.log(`Missing preview image for ${post.slug}: ${previewURL}`);
 		throw new Error(`Preview image not found: ${previewPath}`);
 	}
