@@ -54,7 +54,6 @@ async function getPreviewImage(post: Post, service: 'twitter' | 'generic') {
 }
 
 const twitter = await getPreviewImage(post, 'twitter');
-const generic = await getPreviewImage(post, 'generic');
 const url = Astro.url;
 ---
 
@@ -74,7 +73,7 @@ const url = Astro.url;
 
 
 <meta name="og:title" content={post.title.slice(0, 59)} />
-<meta property="og:image" content={generic} />
+<meta property="og:image" content={twitter} />
 <meta property="og:url" content={url}>
 <meta property="og:type" content="website">
 
