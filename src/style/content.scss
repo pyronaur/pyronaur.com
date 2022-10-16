@@ -99,8 +99,8 @@
 }
 
 .light .content .astro-code {
-	filter: invert(1) contrast(1.25);
-	background-color: hsl(16 5% 15%) !important;
+	filter: invert(1) contrast(1.25) saturate(3);
+	background-color: hsl(16 3% 15%) !important;
 }
 
 blockquote.tweet-card {
