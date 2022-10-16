@@ -99,7 +99,7 @@
 }
 
 .light .content .astro-code {
-	filter: invert(1) contrast(1.25) saturate(3);
+	filter: invert(1) contrast(1.22) saturate(3) hue-rotate(329deg);
 	background-color: hsl(16 3% 15%) !important;
 }
 
