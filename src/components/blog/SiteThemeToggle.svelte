@@ -78,8 +78,8 @@
 		class:spin-left={spin && spinDirection === "left"}
 		class:spin-right={spin && spinDirection === "right"}
 	>
-		<img src="/assets/moon.svg" alt="Enable Light Mode" class="icon-moon" />
-		<img src="/assets/sun.svg" alt="Enable Dark Mode" class="icon-sun" />
+		<img loading="lazy" width="24" height="24" src="/assets/moon.svg" alt="Enable Light Mode" class="icon-moon" />
+		<img loading="lazy" width="24" height="24" src="/assets/sun.svg" alt="Enable Dark Mode" class="icon-sun" />
 	</div>
 </button>
 
