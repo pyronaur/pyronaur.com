@@ -5,6 +5,7 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
+	trailingSlash: 'never',
 	markdown: {
 		remarkPlugins: ['remark-gfm'],
 		rehypePlugins: ['rehype-slug', ['rehype-autolink-headings', {
@@ -23,4 +24,7 @@ export default defineConfig({
 	site: "https://pyronaur.com",
 	integrations: [mdx(), sitemap(), svelte()],
 	output: 'static',
+	// build: {
+	// 	format: 'file'
+	// }
 });
