@@ -38,11 +38,11 @@ The home page is the posts page and your front page is the same as home page. If
 
 Start simple. Your homepage display: "Your latest posts"
 
-[!["Your Latest posts"](images/archive/homepage-latest-page.jpg)](images/archive/homepage-latest-page.jpg)
+[!["Your Latest posts"](/images/archive/homepage-latest-page.jpg)](images/archive/homepage-latest-page.jpg)
 
 #### Static page
 
-[![Static page](images/archive/homepage-static-page.jpg)](images/archive/homepage-static-page.jpg)
+[![Static page](/images/archive/homepage-static-page.jpg)](images/archive/homepage-static-page.jpg)
 
 |                                  |        |
 | -------------------------------- | ------ |

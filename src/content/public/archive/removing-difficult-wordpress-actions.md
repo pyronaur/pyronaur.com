@@ -37,7 +37,7 @@ Can you see what the code above does? It's going to display "_foobar_" and "_doo
 
 So how do you remove it if you cannot access the code above?
 
-![](images/archive/tool-expectations.jpg)
+![Tool Expectations](/images/archive/tool-expectations.jpg)
 
 The fix is actually very simple - **remove action before it's triggered on the same action hook**.  You add another action that's executed before `unwanted_message` to remove `unwanted_message`. Like so:
 
