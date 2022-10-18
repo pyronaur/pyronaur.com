@@ -1,0 +1,60 @@
+---
+import "../style/style.scss";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>404 - squirrels ate the internet.</title>
+	</head>
+	<body>
+		<main class="404">
+			<div class="center">
+				<h1>404</h1>
+				<p>Blame the squirrels. <a href="/">Go Back Home &rarr;</a></p>
+			</div>
+		</main>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			a {
+				font-weight: bold;
+				color: white;
+				text-decoration: underline;
+			}
+
+			p {
+				font-size: 1rem;
+			}
+
+			main {
+				position: absolute;
+				height: 100vh;
+				width: 100%;
+				background: url("404.jpg") no-repeat center center;
+				background-size: cover;
+			}
+			.center {
+				font-size: 3rem;
+				position: absolute;
+				color: white;
+				right: 0;
+				left: 0;
+				top: 35vh;
+				height: 200px;
+				text-align: center;
+				font-size: clamp(2.4rem, 5vw, 3rem);
+				text-shadow: 0 0 10px black;
+		
+			}
+			img {
+				max-width: 100%;
+			}
+		</style>
+	</body>
+</html>
