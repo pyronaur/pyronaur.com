@@ -23,4 +23,5 @@ export default defineConfig({
 	site: "https://pyronaur.com",
 	integrations: [mdx(), sitemap(), svelte()],
 	output: 'static',
+	cleanUrls: true,
 });
