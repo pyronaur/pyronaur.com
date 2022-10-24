@@ -47,7 +47,7 @@
 		}
 
 		// @TODO: Load history from server on page load
-		
+		// @TODO: Cache in LocalStorage
 	});
 
 	async function submit(e) {
