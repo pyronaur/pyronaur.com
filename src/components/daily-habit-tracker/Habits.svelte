@@ -45,6 +45,9 @@
 		if (username && token.length >= 32) {
 			loggedIn = true;
 		}
+
+		// @TODO: Load history from server on page load
+		
 	});
 
 	async function submit(e) {
