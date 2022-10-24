@@ -48,11 +48,13 @@
 	});
 
 	async function submit(e) {
-		isLoading = true;
+		
 		if (!loggedIn) {
 			console.error("Not logged in");
 			return;
 		}
+
+		isLoading = true;
 
 		const targetDay = parseInt(e.srcElement.dataset.day);
 
