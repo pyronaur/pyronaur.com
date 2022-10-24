@@ -1,0 +1,77 @@
+---
+import Blog from "@layouts/blog";
+---
+
+<Blog title="@pyronaur">
+	<form>
+		<label for="name">Username</label>
+		<input type="text" name="name" value="" />
+
+		<label for="token">Token</label>
+		<input type="password" name="token" value="" />
+
+		<input type="submit" value="Submit" />
+	</form>
+	<script is:inline>
+		function submit(e) {
+			e.preventDefault();
+			if (!window.CookieStore) {
+				return false;
+			}
+			const $user = document.querySelector('input[name="name"]');
+			const $token = document.querySelector('input[name="token"]');
+
+			const username = $user.value;
+			const token = $token.value;
+
+			if (!username || token.length <= 32) {
+				return false;
+			}
+
+			document.cookie = `username=${username}`;
+			document.cookie = `token=${token}`;
+
+			$user.value = "";
+			$token.value = "";
+
+			const submit = document.querySelector("input[type=submit]");
+
+			submit.value = "Success!";
+			submit.disabled = true;
+			submit.classList.add("success");
+
+			window.location.href(`/track`);
+		}
+		document.querySelector("form").addEventListener("submit", submit);
+	</script>
+</Blog>
+
+<style lang="scss">
+	form {
+		display: flex;
+		flex-direction: column;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 150px;
+		gap: 10px;
+	}
+	label {
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+	input[type="submit"] {
+		background-color: var(--i-background-color);
+		color: var(--i-text-color);
+		border: none;
+		padding: 10px;
+		&:active {
+			outline: none;
+			opacity: 0.8;
+		}
+		&.success {
+			opacity: 0.8;
+			pointer-events: none;
+		}
+	}
+</style>

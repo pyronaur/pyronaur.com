@@ -15,10 +15,13 @@
 
 
 	--i-background-color: hsl(188 3% 7%);
-	--i-background-color-alt: hsl(188 33% 33%);
+	--i-background-color-alt: hsl(188 13% 33%);
 	--i-text-color: hsl(188 3% 88%);
 
 	--code-background: hsl(188 5% 10%);
 	--code-inline-bg: hsl(188, 100%, 92%);
 	--code-inline-color: hsl(188, 90%, 3%);
+
+	--habit: hsl(188 5% 90%);
+	--habit-done: var( --i-background-color);
 }
