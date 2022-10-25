@@ -1,33 +1,40 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+    import { fetchHabit } from "./api";
 	import Entry from "./Entry.svelte";
-
+	
+	export let history: number[];
+	export let name: string;
 
 	type JournalEntry = {
 		day: number;
 		complete: boolean;
 	};
 
-	export let history: number[];
-	export let name: string;
-
-	let entries: JournalEntry[] = [];
-
-	const dateToDays = (date: Date) => Math.floor(date.getTime() / 86400000);
-
-	const minDays = 30;
-	const today = dateToDays(new Date());
-	let start = history[history.length - 1] || today - minDays;
-	if (start > today - minDays) {
-		start = today - minDays;
+	
+	function dateToDays(date: Date) {
+		return Math.floor(date.getTime() / 86400000);
 	}
 
-	for (let day = start; day <= today; day++) {
-		entries.unshift({
-			day,
-			complete: history.includes(day),
-		});
+	function entriesFromHistory( history ): JournalEntry[] {
+		const minDays = 30;
+		const today = dateToDays(new Date());
+		let start = history[history.length - 1] || today - minDays;
+		if (start > today - minDays) {
+			start = today - minDays;
+		}
+
+		let entries = [];
+		for (let day = start; day <= today; day++) {
+			entries.unshift({
+				day,
+				complete: history.includes(day),
+			});
+		}
+
+		return entries;
 	}
+	
 
 	function getCookie(key) {
 		const cookies = document.cookie.split(";");
@@ -39,15 +46,16 @@
 	let isLoading = false;
 	let username;
 	let token;
-	onMount(() => {
+	onMount(async () => {
 		username = getCookie("username");
 		token = getCookie("token");
 		if (username && token.length >= 32) {
 			loggedIn = true;
 		}
-
-		// @TODO: Load history from server on page load
-		// @TODO: Cache in LocalStorage
+		if ( entries && !entries[0].complete) {
+			const freshHistory = await fetchHabit(name);
+			history = freshHistory;
+		}
 	});
 
 	async function submit(e) {
@@ -74,6 +82,9 @@
 			return;
 		}
 		entry.complete = !entry.complete;
+		const updatedHistory = entries
+			.filter((entry) => entry.complete)
+			.map((entry) => entry.day);
 		const response = await fetch(`https://api.pyronaur.com/habits/${name}`, {
 			method: "POST",
 			headers: {
@@ -81,20 +92,19 @@
 				"X-PY-USER": username,
 				"X-PY-KEY": token,
 			},
-			body: JSON.stringify(
-				entries
-					.filter((entry) => entry.complete)
-					.map((entry) => entry.day)
-			),
+			body: JSON.stringify(history)
 		});
 		if (response.status === 200) {
-			entries = entries;
+			history = updatedHistory;
 		} else {
 			// Revert the value on failure
 			entry.complete = !entry.complete;
 		}
 		isLoading = false;
 	}
+
+	$: entries = entriesFromHistory(history);
+
 </script>
 
 <div class="track" class:loading={isLoading}>

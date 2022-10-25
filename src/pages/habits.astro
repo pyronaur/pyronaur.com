@@ -1,46 +1,53 @@
 ---
+import { fetchHabit } from "@components/daily-habit-tracker/api";
 import Habits from "@components/daily-habit-tracker/Habits.svelte";
 import Blog from "@layouts/blog";
 
-const write: number[] = await fetch("https://api.pyronaur.com/habits/write").then(
-	(r) => r.json()
-);
-const track: number[] = await fetch("https://api.pyronaur.com/habits/track").then(
-	(r) => r.json()
-);
-const walk: number[] = await fetch("https://api.pyronaur.com/habits/walk").then(
-	(r) => r.json()
-);
-const code: number[] = await fetch("https://api.pyronaur.com/habits/code").then(
-	(r) => r.json()
-);
+//
+const habits = [
+	{
+		label: "Morning Walk",
+		slug: "walk",
+		history: [],
+	},
+	{
+		label: "Code",
+		slug: "code",
+		history: [],
+	},
+	{
+		label: "Writing",
+		slug: "write",
+		history: [],
+	},
+	{
+		label: "Track",
+		slug: "track",
+		history: [],
+	},
+];
+
+for (const habit of habits) {
+	habit.history = await fetchHabit(habit.slug);
+}
 ---
 
 <Blog title="Daily Habit Journal">
 	<main class="container">
-		<div class="habit">
-			<h2>Morning Walk</h2>
-			<Habits client:idle history={walk} name="walk" />
-		</div>
-
-		<div class="habit">
-			<div class="desc">
-				<h2>Blog</h2>
-			</div>
-			<Habits client:idle history={write} name="write" />
-		</div>
-
-		<div class="habit">
-			<h2>Track</h2>
-			<Habits client:idle history={track} name="track" />
-		</div>
-
-		<div class="habit">
-			<h2>Write Code</h2>
-			<Habits client:idle history={code} name="code" />
-		</div>
-
-		
+		{
+			habits.map((habit) => {
+				return (
+					<div class="habit">
+						<h2>{habit.label}</h2>
+						<Habits
+							client:idle
+							history={habit.history}
+							name={habit.slug}
+						/>
+					</div>
+				);
+			})
+		}
 	</main>
 </Blog>
 
