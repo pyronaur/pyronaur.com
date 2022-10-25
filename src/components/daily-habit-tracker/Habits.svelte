@@ -92,7 +92,7 @@
 				"X-PY-USER": username,
 				"X-PY-KEY": token,
 			},
-			body: JSON.stringify(history)
+			body: JSON.stringify(updatedHistory)
 		});
 		if (response.status === 200) {
 			history = updatedHistory;
