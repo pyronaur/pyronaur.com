@@ -26,5 +26,18 @@ const { title } = Astro.props;
 			<Header />
 			<slot />
 		</div>
+
+		<script is:inline>
+			window.va = function () {
+				(window.vaq = window.vaq || []).push(arguments);
+			};
+			window.va("beforeSend", (event) => {
+				if (!document.cookie.includes("token")) {
+					return event;
+				}
+				return null;
+			});
+		</script>
+		<script async src="/va/script.js"></script>
 	</body>
 </html>
