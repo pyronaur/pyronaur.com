@@ -2,14 +2,17 @@ import { defineConfig } from 'astro/config';
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import svelte from "@astrojs/svelte";
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+
 
 // https://astro.build/config
 export default defineConfig({
 	markdown: {
-		remarkPlugins: ['remark-gfm'],
-		rehypePlugins: ['rehype-slug', ['rehype-autolink-headings', {
-			behavior: 'wrap'
-		}]],
+		remarkPlugins: [remarkGfm],
+		rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]],
+		extendDefaultPlugins: true,
 		// Pick a syntax highlighter. Can be 'prism' (default), 'shiki' or false to disable any highlighting.
 		syntaxHighlight: 'shiki',
 		// If you are using shiki, here you can define a global theme and
