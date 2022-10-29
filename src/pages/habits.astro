@@ -33,6 +33,11 @@ for (const habit of habits) {
 ---
 
 <Blog title="Daily Habit Journal">
+	<script slot="meta">
+		if ("serviceWorker" in navigator) {
+			navigator.serviceWorker.register("/service-worker.js");
+		}
+	</script>
 	<main class="container">
 		{
 			habits.map((habit) => {

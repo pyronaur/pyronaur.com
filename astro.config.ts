@@ -19,9 +19,12 @@ export default defineConfig({
 	},
 	site: "https://pyronaur.com",
 	integrations: [serviceWorker({
+		registration: {
+			autoRegister: false,
+		},
 		workbox: {
-			globPatterns: [`**/*.{js,css,html,svg,png,jpg,jpeg,webp,woff,woff2,ttf,otf,ico,webmanifest,xml}`],
+			globPatterns: [`habits/*`, `Habits*`],
 		}
-	}),mdx(), sitemap(), svelte(),],
+	}), mdx(), sitemap(), svelte(),],
 	output: 'static',
 });
