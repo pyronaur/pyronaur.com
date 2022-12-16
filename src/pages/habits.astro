@@ -1,31 +1,7 @@
 ---
-import { fetchHabit } from "@components/daily-habit-tracker/api";
+import { fetchHabit, habits } from "@components/daily-habit-tracker/api";
 import Habits from "@components/daily-habit-tracker/Habits.svelte";
 import Blog from "@layouts/blog";
-
-//
-const habits = [
-	{
-		label: "Morning Walk",
-		slug: "walk",
-		history: [],
-	},
-	{
-		label: "Code",
-		slug: "code",
-		history: [],
-	},
-	{
-		label: "Writing",
-		slug: "write",
-		history: [],
-	},
-	{
-		label: "Track",
-		slug: "track",
-		history: [],
-	},
-];
 
 for (const habit of habits) {
 	habit.history = await fetchHabit(habit.slug);
@@ -34,20 +10,7 @@ for (const habit of habits) {
 
 <Blog title="Daily Habit Journal">
 	<main class="container">
-		{
-			habits.map((habit) => {
-				return (
-					<div class="habit">
-						<h2>{habit.label}</h2>
-						<Habits
-							client:idle
-							history={habit.history}
-							name={habit.slug}
-						/>
-					</div>
-				);
-			})
-		}
+		<Habits client:idle habits={habits} />
 	</main>
 </Blog>
 

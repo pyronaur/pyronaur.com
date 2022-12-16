@@ -23,5 +23,9 @@
 	--code-inline-color: hsl(188, 90%, 3%);
 
 	--habit: hsl(188 5% 90%);
-	--habit-done: var( --i-background-color);
+	--habit-button: hsl(188 5% 5%);
+	--habit-done: hsl(188 5% 40%);
+	--habit-hover: hsl(188 5% 80%);
+	--habit-full: hsl(191deg 3% 20%);
+	--habit-blend-mode: multiply;
 }
