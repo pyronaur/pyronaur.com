@@ -6,28 +6,30 @@ export type Habit = {
 	history: number[];
 };
 
-export const habits: Habit[] = [
-	{
-		label: "Morning Walk",
-		slug: "walk",
-		history: [],
-	},
-	{
-		label: "Code",
-		slug: "code",
-		history: [],
-	},
-	{
-		label: "Writing",
-		slug: "write",
-		history: [],
-	},
-	{
-		label: "Track",
-		slug: "track",
-		history: [],
-	},
-];
+export async function getDefinedHabits(): Habit[] {
+	return [
+		{
+			label: "Morning Walk",
+			slug: "walk",
+			history: [],
+		},
+		{
+			label: "Code",
+			slug: "code",
+			history: [],
+		},
+		{
+			label: "Writing",
+			slug: "write",
+			history: [],
+		},
+		{
+			label: "Track",
+			slug: "track",
+			history: [],
+		},
+	];
+}
 
 export type Days = Array<{
 	day: number;
@@ -80,6 +82,16 @@ export async function fetchHabit(name): Promise<number[]> {
 	const data = await response.json();
 
 	return data;
+}
+
+export async function fetchHabitHistory() {
+	const habits = await getDefinedHabits();
+	const promises = habits.map((habit) => fetchHabit(habit.slug));
+	const results = await Promise.all(promises);
+	return habits.map((habit, i) => {
+		habit.history = results[i];
+		return habit;
+	});
 }
 
 export async function updateHabit(name: string, history: number[]) {

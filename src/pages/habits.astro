@@ -1,16 +1,15 @@
 ---
-import { fetchHabit, habits } from "@components/daily-habit-tracker/api";
+import { fetchHabitHistory } from "@components/daily-habit-tracker/api";
 import Habits from "@components/daily-habit-tracker/Habits.svelte";
 import Blog from "@layouts/blog";
 
-for (const habit of habits) {
-	habit.history = await fetchHabit(habit.slug);
-}
+const history = await fetchHabitHistory();
+console.log(history)
 ---
 
 <Blog title="Daily Habit Journal">
 	<main class="container">
-		<Habits client:idle habits={habits} />
+		<Habits client:idle habits={history} />
 	</main>
 </Blog>
 

@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-  import { toggleHabit, getDays, Habit, habits as targets } from "./api";
+	import { toggleHabit, getDays, Habit } from "./api";
 	import { getCredentials } from './auth';
 
   export let habits: Habit[];
   const dailyHabits = getDays(habits);
+  const goals = habits.map( habit => habit.slug);
+
   let filter = '';
   $: days = filter
   	? dailyHabits.map( day => {
@@ -32,7 +34,7 @@
 		{habit.label}
 </button>
 {/each}
-<div class="habits" class:filter style:--opacity-step={1/(targets.length-1)}>
+<div class="habits" class:filter style:--opacity-step={1/(goals.length-1)}>
 {#each days as day}
 	<div class="day">
 		{#each day.slugs as habit}
