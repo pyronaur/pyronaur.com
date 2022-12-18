@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { fade } from "svelte/transition";
 	import { toggleHabit, getDays, Habit, getToday } from "./api";
 	import { getCredentials } from "./auth";
 
@@ -8,7 +7,7 @@
 	const dailyHabits = getDays(habits);
 	const goals = habits.map((habit) => habit.slug);
 
-	let filter = "";
+	let filter: string | null = null;
 	let reverseFilter: string[] | null = null;
 	$: days = filter
 		? dailyHabits.map((day) => {
@@ -36,21 +35,22 @@
 <div class="habit-groups">
 	{#each habits as habit}
 		{@const done = habit.history[0] === today}
+		{@const active =
+			(reverseFilter && reverseFilter.includes(habit.slug)) || done}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div
 			class="habit-group"
+			class:done={active || done}
 			class:actionable={isLoggedIn}
-			class:done={habit.history[0] === today}
-			href="#{habit.slug}"
 			class:reverse-filter={reverseFilter &&
 				!reverseFilter?.includes(habit.slug)}
 			on:click={async () => (habit = await toggleHabit(habit))}
-			on:mouseleave={() => (filter = "")}
+			on:mouseleave={() => (filter = null)}
 			on:mouseenter={() => (filter = habit.slug)}
 		>
 			{#if isLoggedIn}
 				<div class="icon">
-					{#if done}
+					{#if active}
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
