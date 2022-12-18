@@ -130,8 +130,8 @@
 	}
 
 	.icon {
-		width: 14px;
-		height: 14px;
+		width: 16px;
+		height: 16px;
 	}
 
 	.habit-group {
