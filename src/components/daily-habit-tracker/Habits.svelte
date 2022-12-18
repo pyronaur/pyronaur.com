@@ -34,7 +34,9 @@
 
 <div class="habit-groups">
 	{#each habits as habit}
-		<button
+		{@const done = habit.history[0] === today}
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<div
 			class="habit-group"
 			class:actionable={isLoggedIn}
 			class:done={habit.history[0] === today}
@@ -43,8 +45,52 @@
 			on:mouseleave={() => (filter = "")}
 			on:mouseenter={() => (filter = habit.slug)}
 		>
+			{#if isLoggedIn}
+				<div class="icon">
+					{#if done}
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							class="w-5 h-5"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					{:else if filter === habit.slug}
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							class="w-5 h-5"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm6.39-2.908a.75.75 0 01.766.027l3.5 2.25a.75.75 0 010 1.262l-3.5 2.25A.75.75 0 018 12.25v-4.5a.75.75 0 01.39-.658z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					{:else}
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							class="w-5 h-5"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.75 9.25a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z"
+								clip-rule="evenodd"
+							/>
+						</svg>
+					{/if}
+				</div>
+			{/if}
 			{habit.label}
-		</button>
+		</div>
 	{/each}
 </div>
 <div class="habits" class:filter>
@@ -57,46 +103,56 @@
 </div>
 
 <style lang="scss">
-	$size: 21px;
+	$size: 36px;
 
 	.habit-groups {
 		display: flex;
 		flex-wrap: wrap;
 		margin-bottom: 10px;
-		gap: 10px;
+		gap: 16px;
+		margin-top: 50px;
 	}
 
-	button {
-		margin-top: 50px;
-		margin-bottom: 10px;
-		padding: 7px 16px;
-		text-decoration: none;
-		transition: all 0.15s ease-in-out;
-		font-size: 0.8em;
-		border-radius: 6px;
+	.icon {
+		width: 14px;
+		height: 14px;
+	}
+
+	.habit-group {
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		gap: 16px;
+		padding: 6px 5px;
+		gap: 5px;
+		margin-left: -5px;
+		text-decoration: none;
+		transition: all 0.15s ease-in-out;
+		font-size: 16px;
+		text-align: left;
 
 		border: none;
-		background-color: var(--habit-empty);
-		color: var(--text-color);
+		background-color: transparent;
 
 		font-weight: 600;
-		
-		&:hover {
-			color: var(--habit-empty);
-			background-color: var(--habit-hover);
-			border-color: var(--habit-hover);
+		border-bottom: 3px solid transparent;
+
+		&.done {
+			svg {
+				fill: hsl(166, 80%, 40%);
+			}
 		}
+		&:hover {
+			border-color: currentColor;
+		}
+		cursor: default;
 	}
-	button.actionable {
+	.actionable {
 		cursor: pointer;
-		&.done:not(:hover) {
-			color: white;
-			background-color: var(--habit-done);
-			border-color: var(--habit-done);
+
+		&:hover {
+			border-color:hsl(20, 900%, 60%);
+			svg {
+				fill: hsl(20, 900%, 60%);
+			}
 		}
 	}
 
@@ -139,7 +195,7 @@
 			background-color: var(--level-5-color);
 		}
 		.filter &.active {
-			background-color: var(--habit-hover);
+			background-color: var(--habit-hover-block);
 		}
 	}
 </style>
