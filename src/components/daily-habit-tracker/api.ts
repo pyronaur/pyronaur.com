@@ -105,19 +105,27 @@ export async function updateHabit(name: string, history: number[]) {
 		return;
 	}
 	const { username, token } = credentials;
-	const response = await fetch(`https://api.pyronaur.com/habits/${name}`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-			"X-PY-USER": username,
-			"X-PY-KEY": token,
-		},
-		body: JSON.stringify(history),
-	});
-	if (response.status !== 200) {
-		console.error(response);
+	try {
+		const response = await fetch(
+			`https://api.pyronaur.com/habits/${name}`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"X-PY-USER": username,
+					"X-PY-KEY": token,
+				},
+				body: JSON.stringify(history),
+			}
+		);
+		if (response.status !== 200) {
+			console.error(response);
+		}
+		return response.status === 200;
+	} catch (e) {
+		console.error(e);
+		return false;
 	}
-	return response.status === 200;
 }
 
 export async function toggleHabit(habit: Habit) {
