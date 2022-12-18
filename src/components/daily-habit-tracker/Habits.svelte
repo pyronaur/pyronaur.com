@@ -9,6 +9,7 @@
 	const goals = habits.map((habit) => habit.slug);
 
 	let filter = "";
+	let reverseFilter: string[] | null = null;
 	$: days = filter
 		? dailyHabits.map((day) => {
 				return {
@@ -41,6 +42,8 @@
 			class:actionable={isLoggedIn}
 			class:done={habit.history[0] === today}
 			href="#{habit.slug}"
+			class:reverse-filter={reverseFilter &&
+				!reverseFilter?.includes(habit.slug)}
 			on:click={async () => (habit = await toggleHabit(habit))}
 			on:mouseleave={() => (filter = "")}
 			on:mouseenter={() => (filter = habit.slug)}
@@ -95,9 +98,12 @@
 </div>
 <div class="habits" class:filter>
 	{#each days as day}
+		<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 		<div
 			class="day level-{level(day.slugs.length)}"
 			class:active={day.slugs.includes(filter)}
+			on:mouseenter={() => (reverseFilter = day.slugs)}
+			on:mouseout={() => (reverseFilter = null)}
 		/>
 	{/each}
 </div>
@@ -144,12 +150,16 @@
 			border-color: currentColor;
 		}
 		cursor: default;
+
+		&.reverse-filter {
+			opacity: 0.3;
+		}
 	}
 	.actionable {
 		cursor: pointer;
 
 		&:hover {
-			border-color:hsl(20, 900%, 60%);
+			border-color: hsl(20, 900%, 60%);
 			svg {
 				fill: hsl(20, 900%, 60%);
 			}
@@ -174,6 +184,7 @@
 		border-radius: 4px;
 		overflow: hidden;
 		transition: background-color 0.2s ease-in-out;
+		cursor: pointer;
 
 		&.level-1 {
 			background-color: var(--level-1-color);
