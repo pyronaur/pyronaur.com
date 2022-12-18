@@ -122,17 +122,18 @@ export async function updateHabit(name: string, history: number[]) {
 
 export async function toggleHabit(habit: Habit) {
 	const today = dateToDays(new Date());
-	let history = [];
+	let savedHistory = [...habit.history];
 	if (habit.history[0] === today) {
-		history = habit.history.slice(1);
+		habit.history = habit.history.slice(1);
 	} else {
-		history = [today, ...habit.history];
+		habit.history = [today, ...habit.history];
 	}
 
-	const success = await updateHabit(habit.slug, history);
-	if (success) {
-		habit.history = history;
-		return habit;
+	const success = await updateHabit(habit.slug, habit.history);
+	if (!success) {
+		habit.history = savedHistory;
+		return false;
 	}
-	return habit;
+
+	return true;
 }

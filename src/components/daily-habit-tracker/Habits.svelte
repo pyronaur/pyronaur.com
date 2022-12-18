@@ -4,11 +4,12 @@
 	import { getCredentials } from "./auth";
 
 	export let habits: Habit[];
-	const dailyHabits = getDays(habits);
+
 	const goals = habits.map((habit) => habit.slug);
 
 	let filter: string | null = null;
 	let reverseFilter: string[] | null = null;
+	$: dailyHabits = getDays(habits);
 	$: days = filter
 		? dailyHabits.map((day) => {
 				return {
@@ -30,6 +31,15 @@
 		const max = goals.length;
 		return Math.ceil(input / (max / 5));
 	}
+
+	async function toggle(habit: Habit) {
+		const promise = toggleHabit(habit);
+		// Optimistically update the UI
+		habits = habits;
+		if ((await promise) === false) {
+			habits = habits;
+		}
+	}
 </script>
 
 <div class="habit-groups">
@@ -44,7 +54,7 @@
 			class:actionable={isLoggedIn}
 			class:reverse-filter={reverseFilter &&
 				!reverseFilter?.includes(habit.slug)}
-			on:click={async () => (habit = await toggleHabit(habit))}
+			on:click={() => toggle(habit)}
 			on:mouseleave={() => (filter = null)}
 			on:mouseenter={() => (filter = habit.slug)}
 		>
