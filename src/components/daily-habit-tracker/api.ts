@@ -40,6 +40,10 @@ function dateToDays(date: Date) {
 	return Math.floor(date.getTime() / 86400000);
 }
 
+export function getToday() {
+	return dateToDays(new Date());
+}
+
 export function getDays(habits: Habit[]): Days {
 	// First, find the earliest day that any habit was tracked
 	let earliestDate = new Date();
