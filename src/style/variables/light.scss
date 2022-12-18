@@ -22,6 +22,14 @@
 	--code-inline-bg: hsl(188, 100%, 92%);
 	--code-inline-color: hsl(188, 90%, 3%);
 
-	--habit: hsl(188 5% 90%);
-	--habit-done: var( --i-background-color);
+
+	// Habits
+	--level-1-color: hsl(188, 5%, 84%);
+	--level-2-color: hsl(188, 5%, 73%);
+	--level-3-color: hsl(188, 5%, 61%);
+	--level-4-color: hsl(188, 5%, 44%);
+	--level-5-color: hsl(188, 5%, 5%);
+
+	--habit-empty: hsl(188 5% 90%);
+	--habit-hover-block: var(--level-5-color);
 }
