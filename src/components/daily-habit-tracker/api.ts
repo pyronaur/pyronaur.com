@@ -14,6 +14,11 @@ export async function getDefinedHabits(): Habit[] {
 			history: [],
 		},
 		{
+			label: "Meditate",
+			slug: "meditate",
+			history: [],
+		},
+		{
 			label: "Code",
 			slug: "code",
 			history: [],
