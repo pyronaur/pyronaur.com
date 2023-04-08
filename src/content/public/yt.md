@@ -7,16 +7,17 @@ date: 2022-10-29
 A long long time ago I made video tutorials about the things I learned and I really enjoyed it.
 I don't remember why, but doing that on YouTube wasn't a real option back then.
 The video format was still pretty fresh it wasn't a financially viable venture at the time.
-In life's mysterious ways it's something I had to abandon for a long time, but the idea of teaching never left me.
+In life's mysterious ways, it's something I had to abandon for a long time, but the idea of teaching never left me.
 
 Many years have passed and I've always paid attention to what's going on.
-At this point, I feel like I'm late really to the game.
+At this point, I feel like I'm really late to the game.
 But the flip side is that I get to bring everything I've learned over the years with me and I can look to other creators for inspiration because they've paved the path already.
 
-For the past year, I've been thinking a lot more about YouTube.
+I've been thinking a lot more about YouTube for the past year.
 I really want to get into it, but I don't want to add noise or create videos I wouldn't want to watch.
 
 This is the start of my journey.
+
 ### Deliberately Different
 I think it's important to [stand out](/stand-out).
 But how do I apply that idea to YouTube?
@@ -33,6 +34,7 @@ But being intentional isn't about not making mistakes.
 Being Intentional is having a plan systematically observing and pivoting as necessary.
 
 So here's my plan.
+
 ### I'm going to steal
 In his book "Steal Like an Artist" Austin Kleon quotes Salvador Dali:
 
@@ -44,6 +46,7 @@ The videos are fast-paced and varied and strike a really good balance in terms o
 
 I wish there were more videos like that.
 I like it so much that, I think I'll steal it.
+
 And that's where Austin has another recommendation for me:
 
 > Don't just steal the style. Steal the thinking behind the style. You don't want to look like your heroes, you want to see like your heroes.
