@@ -2,6 +2,14 @@
 import "../../style/style.scss";
 import Header from "@components/Header.astro";
 const { title } = Astro.props;
+
+
+function removeTrailingSlash(str: string) {
+	return str.replace(/\/+$/, '');
+  }
+  
+const canonicalUrl = removeTrailingSlash(new URL(Astro.url.pathname, Astro.site).toString());
+
 ---
 
 <html lang="en">
@@ -10,6 +18,7 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<title>{title}</title>
 		<link rel="prefetch" href="/assets/moon.svg" as="image" />
+		<link rel="canonical" href={canonicalUrl} />
 		<slot name="meta" />
 	</head>
 	<body>
