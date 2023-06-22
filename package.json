@@ -14,7 +14,7 @@
     "@astrojs/svelte": "^3.0.0",
     "astro": "^2.7.0",
     "sass": "^1.63.6",
-    "svelte": "^4.0.0"
+    "svelte": "^3.59.2"
   },
   "dependencies": {
     "@astro-community/astro-embed-twitter": "^0.2.2",
