@@ -12,7 +12,6 @@ export default defineConfig({
 	markdown: {
 		remarkPlugins: [remarkGfm],
 		rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]],
-		extendDefaultPlugins: true,
 		// Pick a syntax highlighter. Can be 'prism' (default), 'shiki' or false to disable any highlighting.
 		syntaxHighlight: 'shiki',
 		// If you are using shiki, here you can define a global theme and
@@ -26,4 +25,9 @@ export default defineConfig({
 	site: "https://pyronaur.com",
 	integrations: [mdx(), sitemap(), svelte()],
 	output: 'static',
+	trailingSlash: 'never',
+	build: {
+		inlineStylesheets: 'auto',
+	},
+	compressHTML: true,
 });
