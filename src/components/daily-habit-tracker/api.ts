@@ -1,4 +1,4 @@
-import { getCookie, getCredentials, isLoggedIn } from "./auth";
+import { getCredentials } from "./auth";
 
 export type Habit = {
 	label: string;
@@ -6,7 +6,7 @@ export type Habit = {
 	history: number[];
 };
 
-export async function getDefinedHabits(): Habit[] {
+export async function getDefinedHabits(): Promise<Habit[]> {
 	return [
 		{
 			label: "Morning Walk",
