@@ -17,7 +17,7 @@ wp user create my_username my@email.com --url=multisite-domain.com --role=admini
 To add a user to a sub-site in multisite:
 
 ```
-wp user update my_username --url=other-multisite.com --role=administator
+wp user update my_username --url=other-multisite.com --role=administrator
 ```
 
 Hopefully that saves me 3 minutes next time ?
