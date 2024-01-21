@@ -1,5 +1,6 @@
 ---
 title: "How to dynamically enable Gutenberg"
+summary: "There is an easy way to enable/disable the new WordPress Block Editor (Gutenberg) using good old filters."
 date: "2018-11-16"
 categories: 
   - "code"

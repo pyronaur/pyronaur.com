@@ -1,6 +1,7 @@
 ---
 title: "How to clean an URL with Regex"
 date: "2011-08-20"
+summary: "A regex pattern to fix 1st level domains. Useful for when data is submitted from users."
 categories: 
   - "code"
 ---

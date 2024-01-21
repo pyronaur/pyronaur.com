@@ -5,8 +5,9 @@ import svelte from "@astrojs/svelte";
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-
 import icon from "astro-icon";
+
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,7 +27,7 @@ export default defineConfig({
     }
   },
   site: "https://pyronaur.com",
-  integrations: [mdx(), sitemap(), svelte(), icon()],
+  integrations: [mdx(), sitemap(), svelte(), icon(), preact()],
   output: 'static',
   trailingSlash: 'never',
   build: {

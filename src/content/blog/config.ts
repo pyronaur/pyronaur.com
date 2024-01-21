@@ -3,7 +3,8 @@ const blog = defineCollection({
 	type: 'content',
 	schema: z.object({
 		title: z.string(),
-		summary: z.string(),
+		categories: z.array(z.string()),
+		summary: z.string().optional(),
 		date: z.coerce.date(),
 	}),
 });

@@ -1,6 +1,7 @@
 ---
 title: "Dashes and Underscores in Variables - SASS"
 date: "2012-04-03"
+summary: "A quick tip about dashes and underscores in SASS variables"
 categories: 
   - "tutorials"
 ---

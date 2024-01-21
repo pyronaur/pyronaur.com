@@ -1,81 +1,38 @@
 ---
 import { Post } from "@data/post";
-import fs from "fs";
 const post: Post = Astro.props.post;
 
-async function getPreviewImage(post: Post, service: 'twitter' | 'generic', suffix = '') {
-	const previewDir = `preview`;
-	const previewImageName = `${post.slug}${suffix}.png`;
-	const previewPath = `./public/${previewDir}/${previewImageName}`;
-	const previewURL = `/${previewDir}/${previewImageName}`;
-
-	if (fs.existsSync(previewPath)) {
-		return previewURL;
-	}
-
-	if (import.meta.env.PROD && import.meta.env.GENERATE !== "true") {
-		console.log(`Missing preview image for ${post.slug}: ${previewURL}`);
-		throw new Error(`Preview image not found: ${previewPath}`);
-	}
-
-	// Ensure that the directory exists
-	if (!fs.existsSync(`./public/${previewDir}`)) {
-		fs.mkdirSync(`./public/${previewDir}`);
-	}
-
-	const data = {
-		title: post.title,
-		slug: post.slug,
-		description: post.summary?.replace("\n", ' ') || '',
-		date: post.timestamp.toString(),
-	};
-
-	const previewGenerator = new URL("http://localhost:2900/api/" + service);
-	previewGenerator.search = new URLSearchParams(data).toString();
-
-	const image = await fetch(previewGenerator.toString());
-
-	if (!image.ok) {
-		console.error({
-			response: await image.text(),
-			headers: image.headers,
-			status: image.status,
-			statusText: image.statusText,
-			url: previewGenerator.toString(),
-			message: `Failed to generate preview image for ${post.slug}`,
-		});
-		throw new Error(`Failed to generate preview image: ${previewPath}`);
-	}
-
-	const imageBuffer = Buffer.from(await image.arrayBuffer());
-	fs.writeFileSync(previewPath, imageBuffer);
-
-	return previewURL;
-}
-
-const previewImage = await getPreviewImage(post, 'twitter');
-const previewURL = new URL(previewImage, Astro.url);
+const previewImageName = `/open-graph/${post.slug}.png`;
+const previewURL = new URL(previewImageName, Astro.url);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!-- OpenGraph Card -->
 <meta property="og:title" content={post.title.slice(0, 59)} />
-<meta property="og:type" content="article">
-<meta property="og:url" content={Astro.url}>
+<meta property="og:type" content="article" />
+<meta property="og:url" content={Astro.url} />
 <meta property="og:image" content={previewURL} />
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 {
 	post.summary && (
-		<meta property="og:description" content={post.summary.slice(0, 154)} />
-		<meta name="twitter:description" content={post.summary.slice(0, 154)} />
+		<>
+			<meta
+				property="og:description"
+				content={post.summary.slice(0, 154)}
+			/>
+			<meta
+				name="twitter:description"
+				content={post.summary.slice(0, 154)}
+			/>
+		</>
 	)
 }
 
 <!-- Twitter Card -->
-<meta name="twitter:title" content={post.title}>
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:domain" content={canonicalURL}>
-<meta name="twitter:url" content={Astro.site}>
-<meta name="twitter:image" content={previewURL}>
-<meta name="twitter:creator" content="@pyronaur">
+<meta name="twitter:title" content={post.title} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:domain" content={canonicalURL} />
+<meta name="twitter:url" content={Astro.site} />
+<meta name="twitter:image" content={previewURL} />
+<meta name="twitter:creator" content="@pyronaur" />
