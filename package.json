@@ -23,6 +23,8 @@
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-slug": "^6.0.0",
 		"remark-gfm": "^4.0.0",
+		"satori": "^0.10.11",
+		"sharp": "^0.33.2",
 		"shiki": "^0.14.7"
 	}
 }
