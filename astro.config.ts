@@ -6,8 +6,9 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import icon from "astro-icon";
-
 import preact from "@astrojs/preact";
+
+import vercel from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,5 +34,6 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'auto'
   },
-  compressHTML: true
+  compressHTML: true,
+  adapter: vercel()
 });
