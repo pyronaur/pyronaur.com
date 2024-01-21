@@ -20,3 +20,4 @@ yarn-error.log*
 # I'm using symlinks to store and preview draft posts locally
 src/content/draft
 /.astro
+/.vercel
