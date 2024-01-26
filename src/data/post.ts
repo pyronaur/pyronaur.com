@@ -27,7 +27,7 @@ export function post(post: PostMarkdownInstance): Post {
 	const filename = file.split('/').pop();
 	const slug = filename.replace(/\.mdx?/, '')
 	const contentPath = file.split("content/")[1];
-	const draft = contentPath.split('/')[0] !== 'public';
+	const draft = contentPath.split('/')[0] !== 'published';
 	const category = contentPath.split('/')[1].replace(filename, '')
 
 	return {

@@ -23,7 +23,7 @@ Inside of your Astro project, you'll see the following folders and files:
  * *components* - Template parts, layouts, utilities, all go here.
  * *content* - Keep the content separate from the system for clearer separation. 
  * *style* - Global SCSS styles.
- * *public* - A directory where to place any static files that need to be used on the site.
+ * *published* - A directory where to place any static files that need to be used on the site.
 
 
 ## 🧞 Commands
