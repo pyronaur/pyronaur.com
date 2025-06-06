@@ -1,6 +1,6 @@
 ---
 title: Hype
-preview: If you fear you might get caught up in the hype, this post might be for you.
+summary: If you fear you might get caught up in the hype, this post might be for you.
 date: 2025-06-06
 ---
 
