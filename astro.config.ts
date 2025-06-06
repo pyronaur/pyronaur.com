@@ -7,8 +7,9 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import icon from "astro-icon";
 import preact from "@astrojs/preact";
+import { vitePreprocess } from '@astrojs/svelte';
 
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +29,9 @@ export default defineConfig({
     }
   },
   site: "https://pyronaur.com",
-  integrations: [mdx(), sitemap(), svelte(), icon(), preact()],
+  integrations: [mdx(), sitemap(), svelte({
+    preprocess: vitePreprocess()
+  }), icon(), preact()],
   output: 'static',
   trailingSlash: 'never',
   build: {
