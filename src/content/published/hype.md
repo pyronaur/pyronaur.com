@@ -24,7 +24,7 @@ Someone on the internet is going to remember, how you, yes you - dared to look a
 
 ## Don't fear the hype
 
-Remember [insert hype from 2015]? Yeah, neither do I. Remember someone who got excited? When was the last time you thought about their stupidity? 
+Remember the how Google Glass was going to be the future? Yeah, neither do I. Remember someone who got excited? When was the last time you thought about their stupidity? 
 
 Don't fear the hype. Embrace it. **You're allowed an opinion.** You're allowed to make mistakes and grow. Whatever you think about it, it's fine. You do you.
 
